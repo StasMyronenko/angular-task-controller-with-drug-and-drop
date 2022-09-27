@@ -1,0 +1,19 @@
+<svg [attr.height]="side" [attr.width]="side">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" [attr.stop-color]="colorDown" style="stop-opacity:1" />
+      <stop offset="100%" [attr.stop-color]="colorUp" style="stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" [attr.stop-color]="colorDown" style="stop-opacity:1" />
+      <stop offset="100%" [attr.stop-color]="colorCenter"  style="stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <polygon [attr.points]="points_small.toString()" [attr.stroke-width]="strokeWirth"
+           style="fill:rgba(0,0,0,0);stroke:url(#grad2);"/>
+  <polygon [attr.points]="points_big.toString()" [attr.stroke-width]="strokeWirth" style="fill:rgba(0,0,0,0);stroke:url(#grad1);" />
+  <line [attr.x1]="x1_line" [attr.y1]="y1_line" [attr.x2]="x2_line" [attr.y2]="y2_line" [attr.stroke-width]="strokeWirth" style="stroke:url(#grad1); fill: rgba(0,0,0,1)" />
+
+  Sorry, your browser does not support inline SVG.
+</svg>
