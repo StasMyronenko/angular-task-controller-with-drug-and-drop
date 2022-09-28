@@ -7,7 +7,7 @@ const routes: Routes = [
 
   {path: '', component: AboutComponent},
   {path: 'core', loadChildren: () => import('./core/core.module').then(m => m.CoreModule)},
-  {path: 'auth', loadChildren: () => import("./core/authentication/authentication.module").then(m=>m.AuthenticationModule)}
+  {path: 'auth', loadChildren: () => import("./core/authentication/authentication.module").then(m=>m.AuthenticationModule)},
 ];
 
 @NgModule({

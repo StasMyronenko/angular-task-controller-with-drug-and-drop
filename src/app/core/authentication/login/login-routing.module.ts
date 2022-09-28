@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {LoginComponent} from "./login/login.component";
 
 
-//34.02 main 12.64 runtime
+
 const routes: Routes = [
-  {path: 'workspace', loadChildren: () => import('./workspace/workspace.module').then(m =>m.WorkspaceModule)},
+  {path: '', component: LoginComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CoreRoutingModule { }
+export class LoginRoutingModule { }
