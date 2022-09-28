@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {WorkspaceRoutingModule} from "./workspace-routing";
+import {DashboardRoutingModule} from "./dashboard-routing.module";
 
 
 
@@ -11,7 +11,7 @@ import {WorkspaceRoutingModule} from "./workspace-routing";
   ],
   imports: [
     CommonModule,
-    WorkspaceRoutingModule
+    DashboardRoutingModule
   ]
 })
-export class WorkspaceModule { }
+export class DashboardModule { }

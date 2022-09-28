@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AboutComponent} from "./core/workspace/about/about/about.component";
 
 
 const routes: Routes = [
-
-  {path: '', component: AboutComponent},
-  {path: 'core', loadChildren: () => import('./core/core.module').then(m => m.CoreModule)},
-  {path: 'auth', loadChildren: () => import("./core/authentication/authentication.module").then(m=>m.AuthenticationModule)},
+  {path: '', redirectTo: '/about', pathMatch: 'full'},
+  {path: 'about', loadChildren: () => import('./core/about/about.module').then(m=>m.AboutModule)},
+  {path: 'dashboard', loadChildren: () => import('./core/dashboard/dashboard.module').then(m=>m.DashboardModule)},
+  {path: 'login', loadChildren: () => import('./core/login/login.module').then(m=>m.LoginModule)},
+  {path: 'register', loadChildren: () => import('./core/register/register.module').then(m=>m.RegisterModule)}
 ];
 
 @NgModule({

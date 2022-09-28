@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {SharedModule } from "./shared/shared.module";
-import {AboutModule} from "./core/workspace/about/about.module";
 import {BaseModule} from "./core/base/base.module";
 
 
@@ -15,7 +13,6 @@ import {BaseModule} from "./core/base/base.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AboutModule,
     BaseModule
   ],
   providers: [],
