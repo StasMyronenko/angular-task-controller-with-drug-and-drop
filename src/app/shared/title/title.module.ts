@@ -10,6 +10,7 @@ import { TitleComponent } from './title/title.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [TitleComponent]
 })
 export class TitleModule { }

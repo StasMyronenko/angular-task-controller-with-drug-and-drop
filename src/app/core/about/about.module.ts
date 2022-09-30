@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import {AboutRoutingModule} from "./about-routing.module";
 import { AboutHeaderComponent } from './about/about-header/about-header.component';
 import {PyramidModule} from "../../shared/pyramid/pyramid.module";
+import {TitleModule} from "../../shared/title/title.module";
 
 
 
@@ -15,7 +16,8 @@ import {PyramidModule} from "../../shared/pyramid/pyramid.module";
   imports: [
     CommonModule,
     AboutRoutingModule,
-    PyramidModule
+    PyramidModule,
+    TitleModule
   ]
 })
 export class AboutModule { }
