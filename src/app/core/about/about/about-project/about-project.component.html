@@ -1,0 +1,29 @@
+<div class="about-project">
+  <app-title [title]="'About Project'"></app-title>
+  <app-about-project-element
+    [text]="'This product was created for structure your work time and be more productive.'"
+    [textWidth]="510"
+    [icon]="'fa-regular fa-clock'"
+    [iconSize]="10"
+  ></app-about-project-element>
+  <app-about-project-element
+    [text]="'You\'ll always know which tasks you need to do and which your team done.'"
+    [textWidth]="470"
+    [icon]="'fa-solid fa-people-group'"
+    [iconSize]="10"
+    [reverse]="true"
+  ></app-about-project-element>
+  <app-about-project-element
+    [text]="'All information about your project always in your gadget or laptop.'"
+    [textWidth]="500"
+    [icon]="'fa-solid fa-laptop-code'"
+    [iconSize]="10"
+
+  ></app-about-project-element>
+
+  <div class="about-button-div">
+    <a routerLink="/login" class="about-button">Try Now!</a>
+  </div>
+
+</div>
+

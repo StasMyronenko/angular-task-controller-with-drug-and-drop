@@ -3,7 +3,7 @@
     <a routerLink="about" *ngIf="showLogo" class="logo">
       <app-pyramid [size]="1/3.5" [colorDown]="'#857cfc'" [colorCenter]="'#b175f9'" [colorUp]="'#da70f7'"></app-pyramid>
     </a>
-    <nav class="navigation">
+    <nav class="navigation" [ngStyle]="{'min-width': showLogo ? '83%' : '100%'}">
       <div class="workspace">
         <a routerLink="about" class="link">About</a>
         <a routerLink="dashboard" class="link">Dashboard</a>
@@ -13,7 +13,5 @@
         <a routerLink="register" class="link">Register</a>
       </div>
     </nav>
-
   </div>
-
 </div>

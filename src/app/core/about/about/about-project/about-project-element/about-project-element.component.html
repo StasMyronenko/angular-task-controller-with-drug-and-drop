@@ -1,0 +1,10 @@
+<div class="about-project-element">
+  <div class="content" [ngStyle]="{'flex-direction': reverse ? 'row-reverse' : 'row'}">
+    <div class="text-div" [ngStyle]="{'width': textWidth + 'px'}">
+      <p class="text" [ngStyle]="{'text-align': reverse ? 'right' : 'left'}" >{{text}}</p>
+    </div>
+    <div class="icon-div">
+      <i class="icon {{icon}}" [ngStyle]="{'font-size': iconSize + 'rem'}"></i>
+    </div>
+  </div>
+</div>
