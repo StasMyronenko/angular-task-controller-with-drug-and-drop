@@ -1,5 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: BlackerSansText;
+  font-weight: 200;
+  src: url("./font/BlackerSansText-Extralight.ttf");
+}
+
+@font-face {
+  font-family: BlackerSansText;
+  font-weight: 300;
+  src: url("./font/BlackerSansText-Light.ttf");
+}
+
+@font-face {
+  font-family: BlackerSansText;
+  font-weight: 350;
+  src: url("./font/BlackerSansText-Book.ttf");
+}
+
+@font-face {
+  font-family: BlackerSansText;
+  font-weight: 400;
+  src: url("./font/BlackerSansText-Regular.ttf");
+}
+
+@font-face {
+  font-family: AliensAndCows;
+
+  src: url("./font/aliens and cows_trial.ttf");
+}
+
+@font-face {
+  font-family: AliensAndCowsExtraBold;
+
+  src: url("./font/Alienscows-ExtraBold-Trial.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }

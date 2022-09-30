@@ -1,0 +1,46 @@
+.about-header {
+  background: linear-gradient(to right, #B3CAFF, #00FFE8);
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.title {
+  font-family: AliensAndCows;
+  font-size: 4.1rem;
+  color: #FFF;
+  font-weight: 200;
+  width: 475px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  width: 925px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-start-now {
+
+  background: #55A8FF;
+  font-size: 2.2rem;
+  text-decoration: none;
+  font-family: AliensAndCowsExtraBold;
+  color: #B5F6FF;
+
+  /*Тут закостиляв, бо у шрифта дуже незручна висота(пікселів 30 ще зверху)*/
+  line-height: 0;
+  padding: 25px 35px 55px 35px;
+}
+
+.about-header-pyramid {
+  display: flex;
+}

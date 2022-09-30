@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class MenuComponent {
   @Input() showLogo: boolean = true;
+  @Input() isAuthorized: boolean = false;  // mb create function for this
   constructor() { }
 
 }

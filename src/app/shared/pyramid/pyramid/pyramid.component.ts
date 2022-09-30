@@ -23,7 +23,6 @@ export class PyramidComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes)
     this.side *= this.size;
     this.points_small = this.points_small.map((el) => el * this.size)
     this.points_big = this.points_big.map((el) => el * this.size)
