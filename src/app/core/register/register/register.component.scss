@@ -1,0 +1,27 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-form {
+  display: flex;
+  margin-bottom: 40px;
+
+}
+
+.to-login-div {
+  width: 900px;
+  margin-bottom: 100px;
+
+}
+
+.to-login-p {
+  font-size: 1.5rem;
+}
+
+.to-login-a {
+  font-size: 1.5rem;
+  color: #4F84FF;
+  text-decoration: none;
+}

@@ -1,1 +1,35 @@
-<p>register works!</p>
+<section class="register">
+  <app-title [title]="'Register'"></app-title>
+  <app-form
+    class="app-form"
+    [buttonSubmitText]="'Register'"
+    [data]="[
+      {
+        placeholder: 'Name',
+        name: 'name',
+        type: 'text'
+      },
+      {
+        placeholder: 'Login',
+        name: 'login',
+        type: 'email'
+      },
+      {
+        placeholder: 'Password',
+        name: 'password',
+        type: 'password'
+      },
+      {
+        placeholder: 'Repeat password',
+        name: 'repeat_password',
+        type: 'password'
+      }
+    ]"
+  ></app-form>
+  <div class="to-login-div">
+    <p class="to-login-p">
+      Do you already have an account? <a routerLink="/login" class="to-login-a">Login now!</a>
+    </p>
+  </div>
+
+</section>
