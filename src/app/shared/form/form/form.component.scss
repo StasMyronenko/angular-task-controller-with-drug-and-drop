@@ -1,0 +1,31 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  background: #4F84FF;
+  border-radius: 50px;
+  width: 900px;
+  align-items: center;
+  padding: 100px;
+  box-sizing: border-box;
+}
+
+.input {
+  padding: 30px 20px;
+  color: #000;
+  font-family: BlackerSansText;
+  font-size: 1.75rem;
+  width: 720px;
+  border-radius: 50px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  margin-top: 50px;
+  color: #55A8FF;
+  border: none;
+  font-family: AliensAndCowsExtraBold;
+  font-size: 2.2rem;
+  padding: 20px 40px 50px 40px;
+  line-height: 0;
+}

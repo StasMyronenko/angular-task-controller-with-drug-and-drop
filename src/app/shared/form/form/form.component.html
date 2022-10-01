@@ -1,0 +1,11 @@
+<form class="form">
+  <input
+    type="{{element.type}}"
+    class="input {{element.name}}"
+    placeholder="{{element.placeholder}}"
+    [formControl]="element.field"
+    *ngFor="let element of formFields"
+  >
+
+  <button type="submit" class="submit-button">{{ buttonSubmitText }}</button>
+</form>

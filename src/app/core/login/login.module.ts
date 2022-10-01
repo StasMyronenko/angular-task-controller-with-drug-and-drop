@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import {LoginRoutingModule} from "./login-routing.module";
+import {TitleModule} from "../../shared/title/title.module";
+import {FormModule} from "../../shared/form/form.module";
 
 
 
@@ -11,7 +13,9 @@ import {LoginRoutingModule} from "./login-routing.module";
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    TitleModule,
+    FormModule
   ]
 })
 export class LoginModule { }
