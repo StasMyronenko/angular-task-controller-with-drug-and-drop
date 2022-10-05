@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {formField, formFieldData} from "./form.model";
 
 @Component({
@@ -7,20 +7,32 @@ import {formField, formFieldData} from "./form.model";
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
+
 export class FormComponent implements OnInit {
   @Input() buttonSubmitText: string = '';
   @Input() data: Array<formFieldData> = [];
+
+  @Output() onSubmit = new EventEmitter<object>()
+
+  submitFunction(value: object = {}) {
+    this.onSubmit.emit(value)
+  }
+
   formFields: Array<formField> = [];
+  userForm: FormGroup = new FormGroup<any>({});
   constructor() { }
   ngOnInit() {
+    const dataForGroup: any = {}
     this.data.forEach((element) => {
       const new_element: formField = {
         placeholder: element.placeholder,
         name: element.name,
         type: element.type,
-        field: new FormControl('')
+        field: new FormControl('', [Validators.required])
       }
       this.formFields.push(new_element)
+      dataForGroup[element.name] = new_element.field
     })
+    this.userForm = new FormGroup(dataForGroup)
   }
 }

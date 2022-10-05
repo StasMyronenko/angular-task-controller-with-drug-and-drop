@@ -1,11 +1,12 @@
-<form class="form">
-  <input
-    type="{{element.type}}"
-    class="input {{element.name}}"
-    placeholder="{{element.placeholder}}"
-    [formControl]="element.field"
-    *ngFor="let element of formFields"
-  >
+<form class="form" (submit)="submitFunction(userForm.value)" [formGroup]="userForm">
+
+    <input
+      type="{{element.type}}"
+      class="input {{element.name}}"
+      placeholder="{{element.placeholder}}"
+      [formControl]="element.field"
+      *ngFor="let element of formFields"
+    [required]="'required'">
 
   <button type="submit" class="submit-button">{{ buttonSubmitText }}</button>
 </form>

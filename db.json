@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "email": "stasmyronenko96@gmail.com",
+      "password": "$2a$10$vWYz3avVMMl8sw2u4a/2E.nqKLsfQWjdsPIK3ralmkwoytxFTx2py",
+      "name": "123",
+      "id": 1
+    },
+    {
+      "email": "q@g.c",
+      "password": "$2a$10$Ves.3QulHl91X565KZKLae5D6xEk/dPOlZB7c5jSyd1jfweMBA1Xu",
+      "id": 2
+    },
+    {
+      "email": "2@g.c",
+      "password": "$2a$10$42J0wByTZ9tZOcSv6K8oouPcSQVZX0Px8WLfIyIOu7YGQYyVQLKUe",
+      "id": 3
+    }
+  ],
+  "boards": [
+    {
+      "title": "First board",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "First board",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "email": "1@g.c",
+      "password": "$2a$10$zwUEUVkUFeush5tQDy9H/eOeLq2qa1vAIcZFnheHSpm8.PCHtOc/S",
+      "name": "123",
+      "repeat_password": "12345678",
+      "id": 1
+    },
+    {
+      "email": "2@g.c",
+      "password": "$2a$10$Z/ng3oRyjJL4c.kCE5I/jOMWjnbmQe3HAk7X9zS5OsjtWg42CSzL.",
+      "id": 2
+    },
+    {
+      "email": "3@g.c",
+      "password": "$2a$10$6LzyQx43/TgO3Z79J7zA5eMyvLVrqC64D0tRuDC/jYR.paqv7zGXu",
+      "id": 3
+    }
+  ],
+  "boards": [
+    {
+      "email": "1@g.c",
+      "password": "12345678",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "email": "2@g.c",
+      "password": "12345678",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "email": "3@g.c",
+      "password": "12345678",
+      "userId": 3,
+      "id": 3
+    }
+  ]
+}

@@ -4,10 +4,11 @@
     <app-form
       class="app-form"
       [data]="[
-        {placeholder: 'Login', name: 'login', type: 'text'},
+        {placeholder: 'Email', name: 'email', type: 'email'},
         {placeholder: 'Password', name: 'password', type: 'password'}
        ]"
       [buttonSubmitText]="'Login!'"
+      (onSubmit)="sendData($event)"
     ></app-form>
   </div>
   <div class="to-register-div">
