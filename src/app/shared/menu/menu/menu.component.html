@@ -8,10 +8,17 @@
         <a routerLink="about" class="link">About</a>
         <a routerLink="dashboard" class="link">Dashboard</a>
       </div>
-      <div class="authentication" *ngIf="!isAuthorized">
+      <div class="authentication">
         <a routerLink="login" class="link">Login</a>
         <a routerLink="register" class="link">Register</a>
       </div>
+      <ng-container >
+        <div class="user-field-div" *ngIf="writeName && isUserAuthorized()">
+          <a routerLink="/dashboard" class="link">
+            Hi, {{ this.getName() }}!
+          </a>
+        </div>
+      </ng-container>
     </nav>
   </div>
 </div>

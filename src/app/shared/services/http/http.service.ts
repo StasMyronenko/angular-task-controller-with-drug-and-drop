@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpResponse} from "@angular/common/http";
-import {LoginModel, LoginResponse} from "./login.model";
 import {catchError, Observable, throwError} from "rxjs";
+import {LoginModel, LoginResponse} from "../../../core/login/login/login.model";
 
-const loginUrl = "http://localhost:3000/login"
-
-@Injectable()
-export class LoginHttpService {
+@Injectable({
+  providedIn: 'root'
+})
+export class HttpService {
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {
@@ -14,11 +14,10 @@ export class LoginHttpService {
     return throwError(() => new Error(error.error))
   }
 
-  loginUser(data: LoginModel | {}): Observable<HttpResponse<LoginResponse>> {
-    const res = this.http.post<LoginResponse>(loginUrl, data, { observe: 'response' })
+  sendRequest(url: string, data: LoginModel | {}): Observable<HttpResponse<LoginResponse>> {
+    const res = this.http.post<LoginResponse>(url, data, { observe: 'response' })
       .pipe(catchError(this.handleError))
     // console.log(res)
     return res
   }
-
 }

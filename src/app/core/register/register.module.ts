@@ -4,7 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import {RegisterRoutingModule} from "./register-routing.module";
 import {TitleModule} from "../../shared/title/title.module";
 import {FormModule} from "../../shared/form/form.module";
-import {RegisterHttpService} from "./register/register-http.service";
+import {HttpService} from "../../shared/services/http/http.service";
 
 
 
@@ -18,6 +18,6 @@ import {RegisterHttpService} from "./register/register-http.service";
     TitleModule,
     FormModule
   ],
-  providers: [RegisterHttpService]
+  providers: [HttpService]
 })
 export class RegisterModule { }

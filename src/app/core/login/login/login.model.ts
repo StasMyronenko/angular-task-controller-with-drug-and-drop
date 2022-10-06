@@ -7,6 +7,7 @@ export interface LoginResponse {
   accessToken: string,
   user: {
     email: string,
+    name: string | undefined;
     id: number
   }
 }

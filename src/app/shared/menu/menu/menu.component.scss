@@ -20,7 +20,7 @@
   justify-content: space-between;
 }
 
-.workspace, .authentication {
+.workspace, .authentication, .user-field-div {
   display: flex;
   justify-content: space-between;
 }
@@ -33,7 +33,11 @@
   width: 265px;
 }
 
-.link {
+.user-field {
+  display: flex;
+}
+
+.link, .user-field-p {
   font-family: BlackerSansText;
   font-weight: 350;
   font-size: 2.2rem;

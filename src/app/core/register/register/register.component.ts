@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {RegisterHttpService} from "./register-http.service";
 import {RegisterInputData} from "./register.model";
+import {HttpService} from "../../../shared/services/http/http.service";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
 
-  constructor(private httpService: RegisterHttpService) { }
+export class RegisterComponent implements OnInit {
+  registerUrl = 'http://localhost:3000/register'
+
+  constructor(private httpService: HttpService) { }
 
   sendData(data: RegisterInputData | any) {
 
@@ -19,7 +21,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (data.password === data.repeat_password) {
-      this.httpService.registerUser(data).subscribe(info => alert(info.statusText))
+      this.httpService.sendRequest(this.registerUrl, data).subscribe(info => alert(info.statusText))
     } else {
       alert('Different passwords')
     }

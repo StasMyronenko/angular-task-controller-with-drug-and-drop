@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {MenuComponent} from "./menu/menu.component";
 import {PyramidModule} from "../pyramid/pyramid.module";
 import {AppRoutingModule} from "../../app-routing.module";
+import {GetCookieService} from "../cookie/get-cookie.service";
 
 
 
@@ -13,6 +14,7 @@ import {AppRoutingModule} from "../../app-routing.module";
     AppRoutingModule,
     PyramidModule
   ],
-  exports: [MenuComponent]
+  exports: [MenuComponent],
+  providers: [GetCookieService]
 })
 export class MenuModule { }

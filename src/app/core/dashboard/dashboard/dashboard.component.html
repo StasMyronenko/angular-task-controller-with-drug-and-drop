@@ -1,1 +1,16 @@
-<p>dashboard works!</p>
+<section class="dashboard">
+  <app-title [title]="'Dashboard'"></app-title>
+  <main class="dashboard-main">
+    <form class="dashboard-form" [formGroup]="validateDataForm" (ngSubmit)="submitForm()">
+      <select name="filter" id="filter" [formControl]="sortBy">
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <input type="text" name="search" id="search" [formControl]="search">
+      <button type="submit">Submit</button>
+    </form>
+    <div class="boards">
+
+    </div>
+  </main>
+</section>

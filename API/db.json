@@ -16,6 +16,13 @@
       "email": "3@g.c",
       "password": "$2a$10$6LzyQx43/TgO3Z79J7zA5eMyvLVrqC64D0tRuDC/jYR.paqv7zGXu",
       "id": 3
+    },
+    {
+      "email": "4@g.c",
+      "password": "$2a$10$Od1AK/S0eufC0.D4i3YNEubw.s3bA4CqRx7kbdIb9NFoMhqm2Td6W",
+      "name": "Stas",
+      "repeat_password": "12345678",
+      "id": 4
     }
   ],
   "boards": [

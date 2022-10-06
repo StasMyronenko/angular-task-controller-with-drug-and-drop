@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import {LoginRoutingModule} from "./login-routing.module";
 import {TitleModule} from "../../shared/title/title.module";
 import {FormModule} from "../../shared/form/form.module";
-import {LoginHttpService} from "./login/login-http.service";
+import {HttpService} from "../../shared/services/http/http.service";
 
 
 
@@ -18,6 +18,6 @@ import {LoginHttpService} from "./login/login-http.service";
     TitleModule,
     FormModule
   ],
-  providers: [LoginHttpService]
+  providers: [HttpService]
 })
 export class LoginModule { }
