@@ -1,0 +1,22 @@
+<div class="add-board" (click)="showAddWindow = !showAddWindow">
+  <div class="add-board-div">
+    <i class="fa-solid fa-plus add-icon"></i>
+  </div>
+</div>
+<div class="add-board-form-div" *ngIf="showAddWindow">
+  <div class="content">
+    <main>
+      <app-form
+        [data]="[
+          {name: 'title', placeholder: 'Title', type: 'text'},
+          {name: 'description', placeholder: 'Description', type: 'text'},
+        ]"
+        [buttonSubmitText]="'Add!'"
+        [formTitle]="'Add board'"
+        (onSubmit)="sendData($event)"
+        [xmark]="true"
+        (onXmark)="showAddWindow = !showAddWindow"
+      ></app-form>
+    </main>
+  </div>
+  </div>

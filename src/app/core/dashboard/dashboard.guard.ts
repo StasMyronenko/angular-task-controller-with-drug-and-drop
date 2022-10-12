@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Route, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import {GetCookieService} from "../../shared/cookie/get-cookie.service";
+import {CookieService} from "../../shared/cookie/cookie.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardGuard implements CanLoad {
-  constructor(private cookieService: GetCookieService) {
+  constructor(private cookieService: CookieService) {
   }
   canLoad(
     route: Route,

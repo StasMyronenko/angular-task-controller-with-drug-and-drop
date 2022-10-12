@@ -1,0 +1,21 @@
+<div  class="grid-field">
+  <header class="board-header">
+    <a routerLink="{{board.userId}}">
+      <h3 class="board-title">
+        {{ board.title }}
+      </h3>
+    </a>
+
+    <div class="more">
+      <app-ellipsis-button class="disabled-router-link" [board]="board"></app-ellipsis-button>
+    </div>
+  </header>
+  <a routerLink="{{board.userId}}">
+    <main class="board-main">
+      <p class="board-description">
+        {{ board.description }}
+      </p>
+    </main>
+  </a>
+
+</div>

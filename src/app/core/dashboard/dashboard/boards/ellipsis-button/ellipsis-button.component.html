@@ -1,0 +1,35 @@
+<i class="fa-solid fa-ellipsis ellipsis" (click)="showAllInfo = !showAllInfo"></i>
+<div class="board-settings" [ngStyle]="{'display': showAllInfo ? 'flex' : 'none'}">
+  <div class="content">
+    <header class="board-settings-header">
+      <h2 class="board-settings-title">
+        {{board.title}}
+      </h2>
+      <app-xmark class="xmark-div" (click)="showAllInfo = !showAllInfo" [color]="'#FFF'"></app-xmark>
+    </header>
+    <main>
+      <div class="tasks-per-column">
+        <p>TODO: {{tasksPerColumn.todo}}</p>
+        <p>In Progress: {{tasksPerColumn.in_progress}}</p>
+        <p>Done: {{tasksPerColumn.done}}</p>
+      </div>
+      <div class="edit">
+        <app-form
+        [data] = "[
+          {placeholder: 'Title', name: 'title', type: 'text', initialValue: board.title},
+          {placeholder: 'Description', name: 'description', type: 'text', disable: true, initialValue: board.description}
+        ]"
+        [formTitle]="'Edit'"
+        [buttonSubmitText]="'Edit'"
+        (onSubmit)="changeData($event, board.id)"
+        ></app-form>
+      </div>
+      <div class="creation-date">
+        <p>Creation Date: {{board.creation_date}}</p>
+      </div>
+      <div class="delete">
+        <button (click)="deleteBoard(board.id)">Delete Board</button>
+      </div>
+    </main>
+  </div>
+</div>

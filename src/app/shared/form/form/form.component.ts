@@ -11,11 +11,17 @@ import {formField, formFieldData} from "./form.model";
 export class FormComponent implements OnInit {
   @Input() buttonSubmitText: string = '';
   @Input() data: Array<formFieldData> = [];
-
-  @Output() onSubmit = new EventEmitter<object>()
+  @Input() formTitle: string = '';
+  @Input() xmark: boolean = false;
+  @Output() onXmark = new EventEmitter();
+  @Output() onSubmit = new EventEmitter();
 
   submitFunction(value: object = {}) {
     this.onSubmit.emit(value)
+  }
+
+  xmarkFunction() {
+    this.onXmark.emit()
   }
 
   formFields: Array<formField> = [];
@@ -28,7 +34,8 @@ export class FormComponent implements OnInit {
         placeholder: element.placeholder,
         name: element.name,
         type: element.type,
-        field: new FormControl('', [Validators.required])
+        disable: element.disable,
+        field: new FormControl(element.initialValue || '', [Validators.required])
       }
       this.formFields.push(new_element)
       dataForGroup[element.name] = new_element.field

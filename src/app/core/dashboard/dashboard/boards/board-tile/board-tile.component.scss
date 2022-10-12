@@ -1,0 +1,25 @@
+a {
+    text-decoration: none;
+}
+
+.grid-field {
+}
+
+.board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.board-title {
+  font-family: BlackerSansText;
+  font-size: 1.5rem;
+  color: #4F84FF;
+}
+
+.board-description {
+  font-size: 1.25rem;
+  color: #4F84FF;
+}
+

@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BaseModule} from "./core/base/base.module";
 import {HttpClientModule} from "@angular/common/http";
+import {BoardModule} from "./core/board/board.module";
 
+// TODO data type(delete `any` i many places)
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     BaseModule,
-    HttpClientModule
+    HttpClientModule,
+    BoardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,33 @@
 <section class="dashboard">
-  <app-title [title]="'Dashboard'"></app-title>
-  <main class="dashboard-main">
-    <form class="dashboard-form" [formGroup]="validateDataForm" (ngSubmit)="submitForm()">
-      <select name="filter" id="filter" [formControl]="sortBy">
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
-      <input type="text" name="search" id="search" [formControl]="search">
-      <button type="submit">Submit</button>
-    </form>
-    <div class="boards">
+  <div class="content">
+    <app-title [title]="'Dashboard'"></app-title>
+    <main class="dashboard-main">
+      <form class="dashboard-form" [formGroup]="validateDataForm">
+        <div class="sort">
+          <select name="sort" id="sort" [formControl]="sortBy">
+            <option value="title">Title</option>
+            <option value="creation_date">Date of creation</option>
+            <option value="count_todo">Number of to do task</option>
+            <option value="count_in_progress">Number of in progress task</option>
+            <option value="count_done">Number of done task</option>
+          </select>
+          <div class="reverse-div">
+            <label for="reverse" class="reverse-label">Reverse</label>
 
-    </div>
-  </main>
+            <input type="checkbox" name="reverse" id="reverse" [formControl]="reverse">
+          </div>
+
+        </div>
+        <div class="search">
+          <input type="text" name="search" id="search" placeholder="Search by board name or task name" [formControl]="search">
+        </div>
+      </form>
+      <div class="boards">
+        <app-boards
+          [boardsUrl]="getDashboardUrl()"
+          [queryData]="{reverse: reverse, sortBy: sortBy, search: search}"
+        ></app-boards>
+      </div>
+    </main>
+  </div>
 </section>

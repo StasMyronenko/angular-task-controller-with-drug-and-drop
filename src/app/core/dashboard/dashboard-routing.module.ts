@@ -5,6 +5,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},
+  {path: ':id', loadChildren: () => import('../board/board.module').then(m=>m.BoardModule)}
 ];
 
 @NgModule({

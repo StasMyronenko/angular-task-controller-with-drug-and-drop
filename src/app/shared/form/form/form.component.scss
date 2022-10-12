@@ -5,8 +5,22 @@
   border-radius: 50px;
   width: 900px;
   align-items: center;
-  padding: 100px;
+  padding: 50px 100px 100px 100px;
   box-sizing: border-box;
+}
+
+.xmark-div {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.form-title {
+  font-size: 4rem;
+  color: #fff;
+  font-family: BlackerSansText;
+  font-weight: 400;
+  margin-bottom: 50px;
 }
 
 .input {

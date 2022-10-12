@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {GetCookieService} from "../../cookie/get-cookie.service";
+import {CookieService} from "../../cookie/cookie.service";
 
 @Component({
   selector: 'app-menu',
@@ -21,6 +21,6 @@ export class MenuComponent {
     return this.cookieService.getCookie("user")
   }
 
-  constructor(private cookieService: GetCookieService) { }
+  constructor(private cookieService: CookieService) { }
 
 }

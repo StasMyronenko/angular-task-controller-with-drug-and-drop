@@ -27,22 +27,82 @@
   ],
   "boards": [
     {
-      "email": "1@g.c",
-      "password": "12345678",
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "email": "2@g.c",
-      "password": "12345678",
+      "title": "Second Board",
+      "description": "",
+      "tasks": [],
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Wed Oct 12 2022 21:41:38 GMT+0300 (Eastern European Summer Time)",
       "userId": 2,
       "id": 2
     },
     {
-      "email": "3@g.c",
-      "password": "12345678",
-      "userId": 3,
+      "title": "Second Board",
+      "description": "Desc",
+      "tasks": [],
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Wed Oct 12 2022 21:41:47 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
       "id": 3
+    },
+    {
+      "title": "ew2",
+      "description": "sdf",
+      "tasks": [],
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Wed Oct 12 2022 21:42:01 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "title": "earf",
+      "description": "azs",
+      "tasks": [],
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Wed Oct 12 2022 21:42:57 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "title": "a",
+      "description": "a",
+      "tasks": [],
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Wed Oct 12 2022 22:21:58 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "title": "b",
+      "description": "b",
+      "tasks": [],
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Wed Oct 12 2022 22:22:54 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 7
     }
   ]
 }

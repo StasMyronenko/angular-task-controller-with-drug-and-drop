@@ -1,0 +1,13 @@
+<div class="boards">
+  <div class="content">
+    <div class="boards-grid">
+      <ng-container *ngFor="let board of boards">
+          <app-board-tile class="board-content board" [board]="board"></app-board-tile>
+      </ng-container>
+
+      <app-add-board class="board"
+      [boards]="boards"></app-add-board>
+    </div>
+
+  </div>
+</div>
