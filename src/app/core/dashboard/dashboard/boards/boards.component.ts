@@ -1,7 +1,6 @@
 import {Component, Input, OnInit, ChangeDetectorRef} from '@angular/core';
 import {HttpService} from "../../../../shared/services/http/http.service";
 import {debounce, Observable, timer} from "rxjs";
-import {FormControl} from "@angular/forms";
 import {queryParametersModel} from "./boards.model";
 import {BoardModel, TaskProgress} from "../../../board/board/board.model";
 
@@ -13,14 +12,15 @@ import {BoardModel, TaskProgress} from "../../../board/board/board.model";
 export class BoardsComponent implements OnInit{
   // TODO sorting by task count
   @Input() boardsUrl: string = '';
-  @Input() queryData: any = {};
+  @Input() queryData!: queryParametersModel;
   boards: Array<BoardModel> = [];
   constructor(private http: HttpService, private ref: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.boardRequest(true)
     for (let field in this.queryData) {
-        this.queryData[field].valueChanges
+      // @ts-ignore
+      this.queryData[field].valueChanges
       .pipe(debounce(() => timer(1000)))
       .subscribe((value: string | null) => {
         this.boardRequest(true)
@@ -75,7 +75,6 @@ export class BoardsComponent implements OnInit{
       //   }, 0)
       // })
     }
-
     console.log(sortBy)
     return reverse ? data.reverse() : data
   }

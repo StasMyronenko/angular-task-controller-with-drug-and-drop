@@ -2,26 +2,18 @@
   <div class="content">
     <app-title [title]="'Dashboard'"></app-title>
     <main class="dashboard-main">
-      <form class="dashboard-form" [formGroup]="validateDataForm">
-        <div class="sort">
-          <select name="sort" id="sort" [formControl]="sortBy">
-            <option value="title">Title</option>
-            <option value="creation_date">Date of creation</option>
-            <option value="count_todo">Number of to do task</option>
-            <option value="count_in_progress">Number of in progress task</option>
-            <option value="count_done">Number of done task</option>
-          </select>
-          <div class="reverse-div">
-            <label for="reverse" class="reverse-label">Reverse</label>
-
-            <input type="checkbox" name="reverse" id="reverse" [formControl]="reverse">
-          </div>
-
-        </div>
-        <div class="search">
-          <input type="text" name="search" id="search" placeholder="Search by board name or task name" [formControl]="search">
-        </div>
-      </form>
+      <app-validate-form
+      [sortOptions]="[
+        {title: 'Title', value: 'title'},
+        {title: 'Date of creation', value: 'creation_date'},
+        {title: 'Number of to do task', value: 'count_todo'},
+        {title: 'Number of in progress task', value: 'count_in_progress'},
+        {title: 'Number of done task', value: 'count_done'},
+      ]"
+      [search]="search"
+      [sortBy]="sortBy"
+      [reverse]="reverse"
+      ></app-validate-form>
       <div class="boards">
         <app-boards
           [boardsUrl]="getDashboardUrl()"

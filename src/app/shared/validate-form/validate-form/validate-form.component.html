@@ -1,0 +1,19 @@
+<form class="dashboard-form" [formGroup]="validateDataForm">
+  <div class="sort">
+    <select name="sort" id="sort" [formControl]="sortBy">
+      <ng-container *ngFor="let element of sortOptions">
+        <option value="{{element.value}}">{{element.title}}</option>
+      </ng-container>
+
+    </select>
+    <div class="reverse-div">
+      <label for="reverse" class="reverse-label">Reverse</label>
+
+      <input type="checkbox" name="reverse" id="reverse" [formControl]="reverse">
+    </div>
+
+  </div>
+  <div class="search">
+    <input type="text" name="search" id="search" placeholder="Search by board name or task name" [formControl]="search">
+  </div>
+</form>

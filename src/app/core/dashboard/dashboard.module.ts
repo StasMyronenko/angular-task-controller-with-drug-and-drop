@@ -12,6 +12,7 @@ import { AddBoardComponent } from './dashboard/boards/add-board/add-board.compon
 import {FormModule} from "../../shared/form/form.module";
 import { BoardTileComponent } from './dashboard/boards/board-tile/board-tile.component';
 import {XmarkModule} from "../../shared/xmark/xmark.module";
+import {ValidateFormModule} from "../../shared/validate-form/validate-form.module";
 
 // reactive forms
 
@@ -29,7 +30,8 @@ import {XmarkModule} from "../../shared/xmark/xmark.module";
     TitleModule,
     ReactiveFormsModule,
     FormModule,
-    XmarkModule
+    XmarkModule,
+    ValidateFormModule
   ],
   providers: [HttpService, CookieService]
 })
