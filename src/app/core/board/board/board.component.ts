@@ -22,27 +22,29 @@ export class BoardComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private http: HttpService
   ) {
-     this.http.sendRequest(this.url, {}, 'GET').subscribe(info => {
-      this.board = info.body
-    })
+
   }
   id: number = this.activateRoute.snapshot.params['id'];
   url = `http://localhost:3000/boards/${this.id}`
 
   ngOnInit(): void {
-    for (let task of this.board.tasks) {
-      switch (task.progress){
-        case TaskProgress.todo:
-          this.tasks.todo.push(task)
-          break;
-        case TaskProgress.in_progress:
-          this.tasks.in_progress.push(task)
-          break;
-        case TaskProgress.done:
-          this.tasks.done.push(task)
-          break;
+    this.http.sendRequest(this.url, {}, 'GET').subscribe(info => {
+      this.board = info.body
+      for (let task of this.board.tasks) {
+        switch (task.progress){
+          case TaskProgress.todo:
+            this.tasks.todo.push(task)
+            break;
+          case TaskProgress.in_progress:
+            this.tasks.in_progress.push(task)
+            break;
+          case TaskProgress.done:
+            this.tasks.done.push(task)
+            break;
       }
     }
+    })
+
   }
 
 }

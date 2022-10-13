@@ -1,11 +1,14 @@
-export interface BoardModel {
-  id?: number,
+export interface RequestBoardModel {
   title: string,
   description: string,
   tasks: Array<Task>,
   columns_color: ColumnsColor
   creation_date: string,
   userId: string
+}
+
+export interface BoardModel extends  RequestBoardModel{
+  id: number
 }
 
 export interface Task {

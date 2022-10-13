@@ -1,0 +1,15 @@
+<app-ellipsis-button (onClick)="showAllInfo = !showAllInfo" [color]="'#fff'"></app-ellipsis-button>
+<div class="tasks-column-popup">
+  <div class="content">
+    <header>
+      <h3>{{title}}</h3>
+      <app-xmark (onXmark)="showAllInfo = !showAllInfo"></app-xmark>
+    </header>
+    <main>
+      <form (submit)="submitForm($event)">
+        <input type="color" name="background-color">
+        <input type="submit">
+      </form>
+    </main>
+  </div>
+</div>

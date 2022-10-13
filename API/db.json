@@ -31,7 +31,7 @@
       "description": "",
       "tasks": [],
       "columns_color": {
-        "todo_color": "#4F84FF",
+        "todo_color": "#da3e3e",
         "in_progress_color": "#4F84FF",
         "done_color": "#4F84FF"
       },
@@ -103,6 +103,19 @@
       "creation_date": "Wed Oct 12 2022 22:22:54 GMT+0300 (Eastern European Summer Time)",
       "userId": 2,
       "id": 7
+    },
+    {
+      "title": "123",
+      "description": "123",
+      "tasks": [],
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Thu Oct 13 2022 16:12:04 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 8
     }
   ]
 }

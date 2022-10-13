@@ -12,6 +12,7 @@ export class DashboardGuard implements CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return (Number(this.cookieService.getCookie("expiration_date")) - Date.now()) > 0
+      // return (Number(this.cookieService.getCookie("expiration_date")) - Date.now()) > 0
+    return true
   }
 }

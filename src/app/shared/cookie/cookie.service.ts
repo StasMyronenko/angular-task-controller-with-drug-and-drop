@@ -4,7 +4,10 @@ import { Injectable } from '@angular/core';
 export class CookieService {
 
   getCookie(key: string): string {
-    const res: Array<string> | null = document.cookie.match(new RegExp(`(${key}=)([^;]*)`))
-    return res ? res[2] : '';
+    const res: Array<any> = [...document.cookie.matchAll(new RegExp(`(${key}=)([^;]*)`, 'g'))]
+    if (res && res[res.length - 1]) {
+      return res[res.length - 1][2]
+    }
+    return '';
   }
 }

@@ -1,10 +1,14 @@
 <section class="tasks-column" [ngStyle]="{'background': bgColor}">
   <header class="tasks-column-header">
     <h3 class="tasks-column-title">{{title}}</h3>
-    <i class="fa-solid fa-ellipsis tasks-column-ellipsis"></i>
+    <app-tasks-column-popup
+      [title]="title"
+      [boardId]="boardId"
+      [colorObject]="colorObject"
+    ></app-tasks-column-popup>
   </header>
   <ng-container *ngFor="let task of tasks">
-    <div class="task" >
+    <div class="task">
       <h4 class="task-title">{{task.title}}</h4>
       <i class="fa-solid fa-ellipsis task-ellipsis"></i>
     </div>
@@ -14,3 +18,4 @@
     <h4 class="task-title">Add task</h4>
   </div>
 </section>
+

@@ -19,16 +19,22 @@
         [title]="'Todo'"
         [bgColor]="board.columns_color.todo_color"
         [tasks]="tasks.todo"
+        [boardId]="board.id"
+        [colorObject]="'todo_color'"
       ></app-tasks-column>
       <app-tasks-column
         [title]="'In Progress'"
         [bgColor]="board.columns_color.in_progress_color"
         [tasks]="tasks.in_progress"
+        [boardId]="board.id"
+        [colorObject]="'in_progress_color'"
       ></app-tasks-column>
       <app-tasks-column
         [title]="'Done'"
         [bgColor]="board.columns_color.done_color"
         [tasks]="tasks.done"
+        [boardId]="board.id"
+        [colorObject]="'done_color'"
       ></app-tasks-column>
     </main>
   </div>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 
 @Component({
   selector: 'app-ellipsis-button',
@@ -8,7 +8,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class EllipsisButtonComponent implements OnInit {
 
   @Output() onClick = new EventEmitter()
-
+  @Input() color: string = '#4F84FF';
+  @Input() size: string = '2rem';
   constructor() { }
 
   onClickFunction() {

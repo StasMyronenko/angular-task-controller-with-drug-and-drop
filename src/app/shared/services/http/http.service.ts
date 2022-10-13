@@ -12,6 +12,7 @@ export class HttpService {
 
   private handleError(error: HttpErrorResponse) {
     alert(error.error)
+    console.log(error)
     return throwError(() => new Error(error.error))
   }
 

@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, ChangeDetectorRef} from '@angular/core';
-import {BoardModel} from "../../../../board/board/board.model";
+import {BoardModel, RequestBoardModel} from "../../../../board/board/board.model";
 import {CookieService} from "../../../../../shared/cookie/cookie.service";
 import {HttpService} from "../../../../../shared/services/http/http.service";
 
@@ -19,7 +19,7 @@ export class AddBoardComponent implements OnInit {
   ngOnInit(): void {}
 
   sendData(data: any) {
-    const req: BoardModel = {
+    const req: RequestBoardModel = {
       title: data.title,
       description: data.description,
       tasks: [],
@@ -34,7 +34,7 @@ export class AddBoardComponent implements OnInit {
     this.http.sendRequest(this.postBoardUrl, req, 'POST').subscribe(
       info=>{
         console.log(info)
-        this.boards.push(req)
+        this.boards.push(info.body)
         this.showAddWindow = false
       }
     )

@@ -75,7 +75,6 @@ export class BoardsComponent implements OnInit{
       //   }, 0)
       // })
     }
-    console.log(sortBy)
     return reverse ? data.reverse() : data
   }
 }

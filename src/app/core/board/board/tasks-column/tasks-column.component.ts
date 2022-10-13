@@ -11,10 +11,12 @@ export class TasksColumnComponent implements OnInit {
   @Input() bgColor: string = '#4F84FF';
   @Input() tasks: Array<Task> = [];
   @Input() title: string = '';
-
+  @Input() boardId!: number;
+  @Input() colorObject: any;
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
