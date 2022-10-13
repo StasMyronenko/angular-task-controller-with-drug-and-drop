@@ -1,5 +1,35 @@
 <section class="board" *ngIf="board">
   <div class="content">
     <app-title [title]="board.title"></app-title>
+    <header class="board-header">
+      <app-validate-form class="validate-form"
+        [sortOptions]="[
+          {title: 'Title', value: 'title'},
+          {title: 'Date of creation', value: 'creation_date'},
+        ]"
+        [search]="search"
+        [sortBy]="sortBy"
+        [reverse]="reverse"
+        [placeholderSearch]="'Search task by name'"
+      ></app-validate-form>
+      <i class="fa-solid fa-gear settings-icon"></i>
+    </header>
+    <main class="board-main">
+      <app-tasks-column
+        [title]="'Todo'"
+        [bgColor]="board.columns_color.todo_color"
+        [tasks]="tasks.todo"
+      ></app-tasks-column>
+      <app-tasks-column
+        [title]="'In Progress'"
+        [bgColor]="board.columns_color.in_progress_color"
+        [tasks]="tasks.in_progress"
+      ></app-tasks-column>
+      <app-tasks-column
+        [title]="'Done'"
+        [bgColor]="board.columns_color.done_color"
+        [tasks]="tasks.done"
+      ></app-tasks-column>
+    </main>
   </div>
 </section>

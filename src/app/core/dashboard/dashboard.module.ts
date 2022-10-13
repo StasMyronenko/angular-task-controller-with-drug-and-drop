@@ -7,12 +7,13 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpService} from "../../shared/services/http/http.service";
 import {CookieService} from "../../shared/cookie/cookie.service";
 import { BoardsComponent } from './dashboard/boards/boards.component';
-import { EllipsisButtonComponent } from './dashboard/boards/ellipsis-button/ellipsis-button.component';
 import { AddBoardComponent } from './dashboard/boards/add-board/add-board.component';
 import {FormModule} from "../../shared/form/form.module";
 import { BoardTileComponent } from './dashboard/boards/board-tile/board-tile.component';
 import {XmarkModule} from "../../shared/xmark/xmark.module";
 import {ValidateFormModule} from "../../shared/validate-form/validate-form.module";
+import {EllipsisButtonModule} from "../../shared/ellipsis-button/ellipsis-button.module";
+import { BoardTilePopupComponent } from './dashboard/boards/board-tile-popup/board-tile-popup.component';
 
 // reactive forms
 
@@ -20,9 +21,10 @@ import {ValidateFormModule} from "../../shared/validate-form/validate-form.modul
   declarations: [
     DashboardComponent,
     BoardsComponent,
-    EllipsisButtonComponent,
     AddBoardComponent,
-    BoardTileComponent
+    BoardTileComponent,
+    BoardTilePopupComponent,
+    BoardTilePopupComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import {ValidateFormModule} from "../../shared/validate-form/validate-form.modul
     ReactiveFormsModule,
     FormModule,
     XmarkModule,
-    ValidateFormModule
+    ValidateFormModule,
+    EllipsisButtonModule
   ],
   providers: [HttpService, CookieService]
 })

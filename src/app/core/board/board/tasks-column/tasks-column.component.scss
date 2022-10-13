@@ -1,0 +1,40 @@
+.tasks-column{
+  min-height: 780px;
+}
+
+.tasks-column-header {
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tasks-column-title {
+  font-family: BlackerSansText;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #fff
+}
+
+.tasks-column-ellipsis {
+  font-size: 2.5rem;
+  color: #fff
+}
+
+.task {
+  display: flex;
+  background: rgba(255,255,255, 0.2);
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-title, .task-ellipsis {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.task-title {
+  font-weight: 350;
+}

@@ -1,0 +1,16 @@
+<section class="tasks-column" [ngStyle]="{'background': bgColor}">
+  <header class="tasks-column-header">
+    <h3 class="tasks-column-title">{{title}}</h3>
+    <i class="fa-solid fa-ellipsis tasks-column-ellipsis"></i>
+  </header>
+  <ng-container *ngFor="let task of tasks">
+    <div class="task" >
+      <h4 class="task-title">{{task.title}}</h4>
+      <i class="fa-solid fa-ellipsis task-ellipsis"></i>
+    </div>
+  </ng-container>
+
+  <div class="task">
+    <h4 class="task-title">Add task</h4>
+  </div>
+</section>

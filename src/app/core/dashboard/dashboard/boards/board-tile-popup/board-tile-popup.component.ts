@@ -1,15 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {BoardModel, EditBoardModel, Task} from "../../../../board/board/board.model";
+import {Component, Input, OnInit} from '@angular/core';
+import {BoardModel, EditBoardModel} from "../../../../board/board/board.model";
 import {HttpService} from "../../../../../shared/services/http/http.service";
 
 @Component({
-  selector: 'app-ellipsis-button',
-  templateUrl: './ellipsis-button.component.html',
-  styleUrls: ['./ellipsis-button.component.scss']
+  selector: 'app-board-tile-popup',
+  templateUrl: './board-tile-popup.component.html',
+  styleUrls: ['./board-tile-popup.component.scss']
 })
-
 // TODO Update boards list after edit/delete
-export class EllipsisButtonComponent implements OnInit {
+
+export class BoardTilePopupComponent implements OnInit {
   @Input() board!: BoardModel;
   tasksPerColumn!: {todo: number, in_progress: number, done: number};
   showAllInfo: boolean = false;

@@ -1,4 +1,4 @@
-<i class="fa-solid fa-ellipsis ellipsis" (click)="showAllInfo = !showAllInfo"></i>
+<app-ellipsis-button (onClick)="showAllInfo = !showAllInfo"></app-ellipsis-button>
 <div class="board-settings" [ngStyle]="{'display': showAllInfo ? 'flex' : 'none'}">
   <div class="content">
     <header class="board-settings-header">
@@ -33,3 +33,4 @@
     </main>
   </div>
 </div>
+

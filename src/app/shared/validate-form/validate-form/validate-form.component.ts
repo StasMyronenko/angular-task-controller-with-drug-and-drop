@@ -12,6 +12,7 @@ export class ValidateFormComponent implements OnInit {
   @Input() sortBy = new FormControl('title');
   @Input() reverse = new FormControl(false)
   @Input() search = new FormControl('');
+  @Input() placeholderSearch: string = '';
   validateDataForm = new FormGroup({sortBy: this.sortBy, reverse: this.reverse, search: this.search})
 
   constructor() { }

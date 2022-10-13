@@ -1,0 +1,32 @@
+.board {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.content {
+  width: 1400px;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.validate-form {
+  width: 100%;
+}
+
+.settings-icon {
+  font-size: 3rem;
+  color: #4F84FF;
+}
+
+.board-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 65px;
+  width: 100%;
+  justify-content: space-between;
+}
+

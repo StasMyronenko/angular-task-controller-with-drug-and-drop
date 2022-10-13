@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
-import { HttpService } from "../../../shared/services/http/http.service";
-import {BoardModel} from "./board.model";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HttpService} from "../../../shared/services/http/http.service";
+import {BoardModel, Task, TaskProgress} from "./board.model";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-board',
@@ -9,8 +10,14 @@ import {BoardModel} from "./board.model";
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  // todo make this whole component
-  board: any;
+  // todo setting and task settings
+  // todo logic
+
+  sortBy = new FormControl('title');
+  reverse = new FormControl(false)
+  search = new FormControl('');
+  board!: BoardModel;
+  tasks: {todo: Array<Task>, in_progress: Array<Task>, done: Array<Task>} = {todo: [], in_progress: [], done: []};
   constructor(
     private activateRoute: ActivatedRoute,
     private http: HttpService
@@ -22,6 +29,20 @@ export class BoardComponent implements OnInit {
   id: number = this.activateRoute.snapshot.params['id'];
   url = `http://localhost:3000/boards/${this.id}`
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    for (let task of this.board.tasks) {
+      switch (task.progress){
+        case TaskProgress.todo:
+          this.tasks.todo.push(task)
+          break;
+        case TaskProgress.in_progress:
+          this.tasks.in_progress.push(task)
+          break;
+        case TaskProgress.done:
+          this.tasks.done.push(task)
+          break;
+      }
+    }
+  }
 
 }
