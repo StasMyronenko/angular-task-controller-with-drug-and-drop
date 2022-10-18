@@ -8,14 +8,8 @@
     ></app-tasks-column-popup>
   </header>
   <ng-container *ngFor="let task of tasks">
-    <div class="task">
-      <h4 class="task-title">{{task.title}}</h4>
-      <i class="fa-solid fa-ellipsis task-ellipsis"></i>
-    </div>
+    <app-task [task]="task" [boardId]="boardId" *ngIf="!task.archived"></app-task>
   </ng-container>
-
-  <div class="task">
-    <h4 class="task-title">Add task</h4>
-  </div>
+  <app-add-task [progress]="progress" [boardId]="boardId"></app-add-task>
 </section>
 

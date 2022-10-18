@@ -1,0 +1,21 @@
+<div class="comment">
+  <header class="header">
+    <h4 class="title">
+      {{ comment.title }}
+    </h4>
+    <h5>
+      {{ comment.name }}
+    </h5>
+  </header>
+  <main class="main">
+    <p>
+      {{ comment.comment }}
+    </p>
+  </main>
+  <footer class="footer">
+    <p>
+      {{ comment.creation_date }}
+    </p>
+    <app-button [title]="'Delete Comment'" (onSubmit)="deleteComment()"></app-button>
+  </footer>
+</div>

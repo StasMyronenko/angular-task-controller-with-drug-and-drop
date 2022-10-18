@@ -1,6 +1,6 @@
 <div  class="grid-field">
   <header class="board-header">
-    <a routerLink="{{board.userId}}">
+    <a routerLink="{{board.id}}">
       <h3 class="board-title">
         {{ board.title }}
       </h3>
@@ -10,7 +10,7 @@
       <app-board-tile-popup class="disabled-router-link" [board]="board"></app-board-tile-popup>
     </div>
   </header>
-  <a routerLink="{{board.userId}}">
+  <a routerLink="{{board.id}}">
     <main class="board-main">
       <p class="board-description">
         {{ board.description }}

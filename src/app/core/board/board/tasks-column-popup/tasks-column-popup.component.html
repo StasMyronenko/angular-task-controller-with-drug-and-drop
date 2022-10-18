@@ -1,14 +1,15 @@
 <app-ellipsis-button (onClick)="showAllInfo = !showAllInfo" [color]="'#fff'"></app-ellipsis-button>
-<div class="tasks-column-popup">
+<div class="tasks-column-popup" [ngStyle]="{'display': showAllInfo ? 'flex' : 'none'}">
   <div class="content">
-    <header>
-      <h3>{{title}}</h3>
+    <header class="tasks-column-header">
+      <h3 class="tasks-column-title">{{title}}</h3>
       <app-xmark (onXmark)="showAllInfo = !showAllInfo"></app-xmark>
     </header>
     <main>
       <form (submit)="submitForm($event)">
-        <input type="color" name="background-color">
-        <input type="submit">
+        <label for="background-color">Change background color</label>
+        <input type="color" name="background-color" id="background-color">
+        <input type="submit" id="submit">
       </form>
     </main>
   </div>

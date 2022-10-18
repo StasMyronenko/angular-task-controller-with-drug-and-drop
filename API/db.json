@@ -9,6 +9,7 @@
     },
     {
       "email": "2@g.c",
+      "name": "Stas",
       "password": "$2a$10$Z/ng3oRyjJL4c.kCE5I/jOMWjnbmQe3HAk7X9zS5OsjtWg42CSzL.",
       "id": 2
     },
@@ -27,95 +28,34 @@
   ],
   "boards": [
     {
-      "title": "Second Board",
-      "description": "",
-      "tasks": [],
+      "title": "First",
+      "description": "First Description",
+      "tasks": [
+        {
+          "title": "task 1",
+          "creation_date": "Tue Oct 18 2022 01:52:56 GMT+0300 (Eastern European Summer Time)",
+          "progress": 0,
+          "comments": [],
+          "archived": false
+        },
+        {
+          "title": "Second ",
+          "description": "Second Task",
+          "creation_date": "Tue Oct 18 2022 14:49:17 GMT+0300 (Eastern European Summer Time)",
+          "progress": 0,
+          "comments": [],
+          "archived": false
+        }
+      ],
       "columns_color": {
-        "todo_color": "#da3e3e",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
+        "todo_color": "#8e4848",
+        "in_progress_color": "#48a398",
+        "done_color": "#000000"
       },
-      "creation_date": "Wed Oct 12 2022 21:41:38 GMT+0300 (Eastern European Summer Time)",
+      "creation_date": "Tue Oct 18 2022 01:47:09 GMT+0300 (Eastern European Summer Time)",
       "userId": 2,
-      "id": 2
-    },
-    {
-      "title": "Second Board",
-      "description": "Desc",
-      "tasks": [],
-      "columns_color": {
-        "todo_color": "#4F84FF",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
-      },
-      "creation_date": "Wed Oct 12 2022 21:41:47 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 3
-    },
-    {
-      "title": "ew2",
-      "description": "sdf",
-      "tasks": [],
-      "columns_color": {
-        "todo_color": "#4F84FF",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
-      },
-      "creation_date": "Wed Oct 12 2022 21:42:01 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 4
-    },
-    {
-      "title": "earf",
-      "description": "azs",
-      "tasks": [],
-      "columns_color": {
-        "todo_color": "#4F84FF",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
-      },
-      "creation_date": "Wed Oct 12 2022 21:42:57 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 5
-    },
-    {
-      "title": "a",
-      "description": "a",
-      "tasks": [],
-      "columns_color": {
-        "todo_color": "#4F84FF",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
-      },
-      "creation_date": "Wed Oct 12 2022 22:21:58 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 6
-    },
-    {
-      "title": "b",
-      "description": "b",
-      "tasks": [],
-      "columns_color": {
-        "todo_color": "#4F84FF",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
-      },
-      "creation_date": "Wed Oct 12 2022 22:22:54 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 7
-    },
-    {
-      "title": "123",
-      "description": "123",
-      "tasks": [],
-      "columns_color": {
-        "todo_color": "#4F84FF",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
-      },
-      "creation_date": "Thu Oct 13 2022 16:12:04 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 8
+      "id": 1
     }
-  ]
+  ],
+  "tasks": []
 }

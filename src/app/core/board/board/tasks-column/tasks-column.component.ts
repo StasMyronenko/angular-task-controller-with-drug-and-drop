@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Task} from "../board.model";
+import {Task, TaskProgress} from "../board.model";
 
 @Component({
   selector: 'app-tasks-column',
@@ -13,8 +13,9 @@ export class TasksColumnComponent implements OnInit {
   @Input() title: string = '';
   @Input() boardId!: number;
   @Input() colorObject: any;
-  constructor() { }
+  @Input() progress!: TaskProgress;
 
+  constructor() { }
   ngOnInit(): void {
   }
 

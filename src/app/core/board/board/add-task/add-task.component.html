@@ -1,0 +1,18 @@
+<div class="task" (click)="showAddTaskPopUp = !showAddTaskPopUp">
+  <h4 class="task-title">Add task</h4>
+</div>
+<div class="add-task-pop-up" *ngIf="showAddTaskPopUp">
+  <div class="content">
+    <app-form
+    [buttonSubmitText]="'Add Task'"
+    [data]="[
+    {placeholder: 'Title', name: 'title', type: 'text'},
+    {placeholder: 'Description', name: 'description', type: 'text'}
+    ]"
+    [formTitle]="'Add New Task'"
+    [xmark]="true"
+    (onXmark)="showAddTaskPopUp = !showAddTaskPopUp"
+    (onSubmit)="addTaskRequest($event)"
+    ></app-form>
+  </div>
+</div>

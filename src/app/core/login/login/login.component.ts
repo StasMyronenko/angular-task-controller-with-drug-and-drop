@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     document.cookie = `jwt_token=${data.body?.accessToken}`
     document.cookie = `userId=${data.body?.user.id}`
     document.cookie = `expiration_date=${Date.now() + 3600 * 1000}`
-    document.cookie = `user=${data.body?.user.name}`
+    document.cookie = `user=${data.body?.user.name}; path='/'`
     alert('Success')
   }
 

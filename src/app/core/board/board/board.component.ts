@@ -11,13 +11,16 @@ import {FormControl} from "@angular/forms";
 })
 export class BoardComponent implements OnInit {
   // todo setting and task settings
-  // todo logic
+  // todo add info on page after add it in db without reload
+  // todo add place for archived tasks
+  // todo add place for comments
 
   sortBy = new FormControl('title');
   reverse = new FormControl(false)
   search = new FormControl('');
   board!: BoardModel;
   tasks: {todo: Array<Task>, in_progress: Array<Task>, done: Array<Task>} = {todo: [], in_progress: [], done: []};
+
   constructor(
     private activateRoute: ActivatedRoute,
     private http: HttpService

@@ -11,17 +11,24 @@ export interface BoardModel extends  RequestBoardModel{
   id: number
 }
 
-export interface Task {
+export interface RequestTask {
   title: string,
+  description: string,
   progress: TaskProgress,
   creation_date: string,
-  comments: Array<Comment>
+  comments: Array<Comment>,
+  archived: boolean
+}
+
+export interface Task extends RequestTask{
+  id: number;
 }
 
 export interface Comment {
   name: string,
   title: string,
-  description: string
+  comment: string,
+  creation_date: string
 }
 
 export interface ColumnsColor {

@@ -1,0 +1,29 @@
+.task {
+  display: flex;
+  background: rgba(255,255,255, 0.2);
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-title {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 350;
+}
+
+.add-task-pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,.2);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.content {
+  width: 900px;
+}

@@ -12,7 +12,6 @@
         [reverse]="reverse"
         [placeholderSearch]="'Search task by name'"
       ></app-validate-form>
-      <i class="fa-solid fa-gear settings-icon"></i>
     </header>
     <main class="board-main">
       <app-tasks-column
@@ -21,6 +20,7 @@
         [tasks]="tasks.todo"
         [boardId]="board.id"
         [colorObject]="'todo_color'"
+        [progress]="0"
       ></app-tasks-column>
       <app-tasks-column
         [title]="'In Progress'"
@@ -28,6 +28,7 @@
         [tasks]="tasks.in_progress"
         [boardId]="board.id"
         [colorObject]="'in_progress_color'"
+        [progress]="1"
       ></app-tasks-column>
       <app-tasks-column
         [title]="'Done'"
@@ -35,6 +36,7 @@
         [tasks]="tasks.done"
         [boardId]="board.id"
         [colorObject]="'done_color'"
+        [progress]="2"
       ></app-tasks-column>
     </main>
   </div>

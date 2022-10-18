@@ -1,0 +1,80 @@
+.task {
+  display: flex;
+  background: rgba(255,255,255, 0.2);
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px
+}
+
+.task-title, .task-ellipsis {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.task-title {
+  font-weight: 350;
+}
+
+.task-settings {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255, .2);
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  background: #4F84FF;
+  width: 900px;
+  padding: 50px;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.task-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-settings-task-title {
+  font-family: BlackerSansText;
+  font-size: 4rem;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.task-settings-main {
+  flex-direction: column;
+}
+
+.task-settings-description p{
+  color: #fff;
+  font-size: 2rem;
+  font-family: BlackerSansText;
+}
+
+.task-settings-button {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+hr {
+  margin: 50px 0;
+}
+
+.comments-settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-settings-count {
+  color: #fff;
+  font-size: 2rem;
+  font-family: BlackerSansText;
+}

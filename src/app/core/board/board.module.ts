@@ -6,9 +6,13 @@ import {TitleModule} from "../../shared/title/title.module";
 import {ValidateFormModule} from "../../shared/validate-form/validate-form.module";
 import { TasksColumnComponent } from './board/tasks-column/tasks-column.component';
 import { TasksColumnPopupComponent } from './board/tasks-column-popup/tasks-column-popup.component';
-import { TaskPopupComponent } from './board/task-popup/task-popup.component';
 import {EllipsisButtonModule} from "../../shared/ellipsis-button/ellipsis-button.module";
 import {XmarkModule} from "../../shared/xmark/xmark.module";
+import { AddTaskComponent } from './board/add-task/add-task.component';
+import {FormModule} from "../../shared/form/form.module";
+import { TaskComponent } from './board/task/task.component';
+import {ButtonModule} from "../../shared/button/button.module";
+import { CommentComponent } from './board/comment/comment.component';
 
 
 @NgModule({
@@ -16,7 +20,9 @@ import {XmarkModule} from "../../shared/xmark/xmark.module";
     BoardComponent,
     TasksColumnComponent,
     TasksColumnPopupComponent,
-    TaskPopupComponent
+    AddTaskComponent,
+    TaskComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +30,9 @@ import {XmarkModule} from "../../shared/xmark/xmark.module";
     TitleModule,
     ValidateFormModule,
     EllipsisButtonModule,
-    XmarkModule
+    XmarkModule,
+    FormModule,
+    ButtonModule
   ]
 })
 export class BoardModule { }

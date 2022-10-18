@@ -1,0 +1,48 @@
+<div class="task">
+  <h4 class="task-title">{{task.title}}</h4>
+  <i class="fa-solid fa-ellipsis task-ellipsis" (click)="showTaskSettings = !showTaskSettings"></i>
+</div>
+
+<div class="task-settings" *ngIf="showTaskSettings">
+  <div class="content">
+    <header class="task-settings-header">
+      <h4 class="task-settings-task-title">{{task.title}}</h4>
+      <app-xmark (onXmark)="showTaskSettings = !showTaskSettings"></app-xmark>
+    </header>
+    <main class="task-settings-main">
+      <div class="task-settings-description">
+        <p>{{task.description}}</p>
+      </div>
+      <app-form
+        [data]="[
+          {placeholder: 'Title', type: 'text', name: 'title', initialValue: task.title},
+          {placeholder: 'Description', type: 'text', name: 'description', initialValue: task.description}
+        ]"
+        [buttonSubmitText]="'Edit'"
+        [formTitle]="'Edit Data'"
+        (onSubmit)="editTask($event)"
+      ></app-form>
+
+      <app-button [title]="'Delete Task'" (onSubmit)="deleteTask()" class="task-settings-button"></app-button>
+
+      <app-button [title]="'Archive Task'" (onSubmit)="archiveTask()" class="task-settings-button"></app-button>
+      <hr>
+      <div class="comments-settings">
+        <p class="comments-settings-count">Comments Count: {{task.comments.length}}</p>
+        <app-form
+          [data]="[
+            {placeholder: 'Add Comment', type: 'text', name: 'add_comment'}
+          ]"
+          [buttonSubmitText]="'Add Comment'"
+          [formTitle]="'Add Comment'"
+          (onSubmit)="addComment($event)"
+        ></app-form>
+      </div>
+      <div class="comments">
+        <ng-container *ngFor="let comment of task.comments">
+          <app-comment [comment]="comment"></app-comment>
+        </ng-container>
+      </div>
+    </main>
+  </div>
+</div>
