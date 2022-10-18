@@ -14,18 +14,23 @@ export class AddTaskComponent implements OnInit {
   showAddTaskPopUp = false;
   constructor(private http: HttpService) { }
 
+  getTasksUrl() {
+    return `http://localhost:3000/tasks`
+  }
+
   addTaskRequest(data: {title: string, description: string}) {
-    const res: RequestTask = {title: data.title, description: data.description, creation_date: (new Date(Date.now())).toString(), progress: this.progress, comments: [], archived: false}
-    this.http.sendRequest(this.getUrl(), {}, 'GET').subscribe(info => {
-      const tasks = [...info.body.tasks, res]
-      this.http.sendRequest(this.getUrl(), {tasks: tasks}, 'PATCH').subscribe(info => console.log(info))
-    })
-
+    const res: RequestTask = {
+      boardId: this.boardId,
+      title: data.title,
+      description: data.description,
+      creation_date: (new Date(Date.now())).toString(),
+      progress: this.progress,
+      archived: false
+    }
+    this.http.sendRequest(this.getTasksUrl(), res, 'POST').subscribe(info => console.log(info))
   }
 
-  getUrl() {
-    return `http://localhost:3000/boards/${this.boardId}`
-  }
+
 
   ngOnInit(): void {
   }

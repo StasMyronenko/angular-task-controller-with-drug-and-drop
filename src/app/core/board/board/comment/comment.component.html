@@ -3,17 +3,17 @@
     <h4 class="title">
       {{ comment.title }}
     </h4>
-    <h5>
+    <h5 class="name">
       {{ comment.name }}
     </h5>
   </header>
   <main class="main">
-    <p>
+    <p class="comment-p">
       {{ comment.comment }}
     </p>
   </main>
   <footer class="footer">
-    <p>
+    <p class="date">
       {{ comment.creation_date }}
     </p>
     <app-button [title]="'Delete Comment'" (onSubmit)="deleteComment()"></app-button>

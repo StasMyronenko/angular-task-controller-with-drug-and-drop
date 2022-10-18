@@ -22,7 +22,6 @@ export class AddBoardComponent implements OnInit {
     const req: RequestBoardModel = {
       title: data.title,
       description: data.description,
-      tasks: [],
       columns_color: {
           todo_color: '#4F84FF',
           in_progress_color: '#4F84FF',

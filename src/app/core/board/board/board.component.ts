@@ -19,6 +19,8 @@ export class BoardComponent implements OnInit {
   reverse = new FormControl(false)
   search = new FormControl('');
   board!: BoardModel;
+  board_tasks!: Array<Task>;
+
   tasks: {todo: Array<Task>, in_progress: Array<Task>, done: Array<Task>} = {todo: [], in_progress: [], done: []};
 
   constructor(
@@ -28,24 +30,36 @@ export class BoardComponent implements OnInit {
 
   }
   id: number = this.activateRoute.snapshot.params['id'];
-  url = `http://localhost:3000/boards/${this.id}`
+
+  getBoardUrl() {
+    return `http://localhost:3000/boards/${this.id}`
+  }
+
+  getTasksUrl() {
+    return `http://localhost:3000/tasks?boardId=${this.board.id}`
+  }
+
 
   ngOnInit(): void {
-    this.http.sendRequest(this.url, {}, 'GET').subscribe(info => {
+    this.http.sendRequest(this.getBoardUrl(), {}, 'GET').subscribe(info => {
       this.board = info.body
-      for (let task of this.board.tasks) {
-        switch (task.progress){
-          case TaskProgress.todo:
-            this.tasks.todo.push(task)
-            break;
-          case TaskProgress.in_progress:
-            this.tasks.in_progress.push(task)
-            break;
-          case TaskProgress.done:
-            this.tasks.done.push(task)
-            break;
-      }
-    }
+
+      this.http.sendRequest(this.getTasksUrl(), {}, 'GET').subscribe(info => {
+        this.board_tasks = info.body
+        for (let task of this.board_tasks) {
+          switch (task.progress){
+            case TaskProgress.todo:
+              this.tasks.todo.push(task)
+              break;
+            case TaskProgress.in_progress:
+              this.tasks.in_progress.push(task)
+              break;
+            case TaskProgress.done:
+              this.tasks.done.push(task)
+              break;
+          }
+        }
+      })
     })
 
   }

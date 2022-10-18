@@ -2,7 +2,7 @@ import {Component, Input, OnInit, ChangeDetectorRef} from '@angular/core';
 import {HttpService} from "../../../../shared/services/http/http.service";
 import {debounce, Observable, timer} from "rxjs";
 import {queryParametersModel} from "./boards.model";
-import {BoardModel, TaskProgress} from "../../../board/board/board.model";
+import {BoardModel, TaskProgress, Task} from "../../../board/board/board.model";
 
 @Component({
   selector: 'app-boards',
@@ -52,12 +52,15 @@ export class BoardsComponent implements OnInit{
         if (element.title.includes(search)) {
           return true
         }
-        for (const task of element.tasks) {
-          if (task.title.includes(search)) {
-            return true
+        return this.http.sendRequest(`http://localhost:3000/tasks?boardId=${element.id}`).subscribe(info => {
+          const tasks: Array<Task> = info.body
+          for (const task of tasks) {
+            if (task.title.includes(search)) {
+              return true
+            }
           }
-        }
-        return false
+          return false
+        })
       })
     }
 

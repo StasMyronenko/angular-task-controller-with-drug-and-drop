@@ -1,7 +1,6 @@
 export interface RequestBoardModel {
   title: string,
   description: string,
-  tasks: Array<Task>,
   columns_color: ColumnsColor
   creation_date: string,
   userId: string
@@ -16,19 +15,24 @@ export interface RequestTask {
   description: string,
   progress: TaskProgress,
   creation_date: string,
-  comments: Array<Comment>,
-  archived: boolean
+  archived: boolean,
+  boardId: number
 }
 
 export interface Task extends RequestTask{
   id: number;
 }
 
-export interface Comment {
+export interface RequestComment {
+  taskId: number,
   name: string,
   title: string,
   comment: string,
   creation_date: string
+}
+
+export interface Comment extends RequestComment{
+  id: number
 }
 
 export interface ColumnsColor {

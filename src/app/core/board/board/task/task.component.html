@@ -28,10 +28,11 @@
       <app-button [title]="'Archive Task'" (onSubmit)="archiveTask()" class="task-settings-button"></app-button>
       <hr>
       <div class="comments-settings">
-        <p class="comments-settings-count">Comments Count: {{task.comments.length}}</p>
+        <p class="comments-settings-count">Comments Count: {{comments.length}}</p>
         <app-form
           [data]="[
-            {placeholder: 'Add Comment', type: 'text', name: 'add_comment'}
+            {placeholder: 'Add Title Comment', type: 'text', name: 'title_comment'},
+            {placeholder: 'Add Comment', type: 'text', name: 'comment'}
           ]"
           [buttonSubmitText]="'Add Comment'"
           [formTitle]="'Add Comment'"
@@ -39,7 +40,7 @@
         ></app-form>
       </div>
       <div class="comments">
-        <ng-container *ngFor="let comment of task.comments">
+        <ng-container *ngFor="let comment of comments">
           <app-comment [comment]="comment"></app-comment>
         </ng-container>
       </div>

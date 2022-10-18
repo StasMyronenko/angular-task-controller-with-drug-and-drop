@@ -1,0 +1,36 @@
+.comment{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-top: #FFFFFF 1px solid;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px
+}
+
+.main {
+  margin-bottom: 20px
+}
+
+.title, .name, .comment-p, .date {
+  color: #FFFFFF;
+  font-family: BlackerSansText;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.name {
+  font-size: 1.3rem;
+}
+
+.comment-p {
+  font-size: 1.1em;
+}
+
+.date {
+  margin-bottom: 20px
+}

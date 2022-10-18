@@ -46,9 +46,6 @@ export class BoardTilePopupComponent implements OnInit {
     }
 
     // TODO give logic
-    this.board.tasks.forEach((task) => {
-      console.log(task)
-    })
     return res
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Task, TaskProgress} from "../board.model";
+import {Comment, RequestComment, Task, TaskProgress} from "../board.model";
 import {HttpService} from "../../../../shared/services/http/http.service";
+import {CookieService} from "../../../../shared/cookie/cookie.service";
 
 @Component({
   selector: 'app-task',
@@ -10,30 +11,46 @@ import {HttpService} from "../../../../shared/services/http/http.service";
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
   @Input() boardId!: number;
+  comments!: Array<Comment>;
   showTaskSettings = false
-  getBoardUrl() {
-    return `http://localhost:4200/boards/${this.boardId}`
-  }
-  constructor(private http: HttpService) { }
+
+  constructor(private http: HttpService, private cookie: CookieService) { }
 
   ngOnInit(): void {
+    this.http.sendRequest(this.getCommentsUrl(true), {}, 'GET').subscribe(info => {
+      this.comments = info.body
+    })
+  }
+
+  getTaskUrl() {
+    return `http://localhost:3000/tasks/${this.task.id}`
+  }
+
+  getCommentsUrl(sortedByDate: boolean = false) {
+    return `http://localhost:3000/comments${sortedByDate ? '?_sort=creation_date' : ''}`
   }
 
   editTask(data: {title: string, description: string}) {
-    console.log(data)
-
+    this.http.sendRequest(this.getTaskUrl(), data, 'PATCH').subscribe(info => console.log(info))
   }
 
   deleteTask() {
-    console.log('delete task')
+    this.http.sendRequest(this.getTaskUrl(), {}, 'DELETE').subscribe(info => console.log(info))
   }
 
   archiveTask() {
-    console.log('archive task')
+    this.http.sendRequest(this.getTaskUrl(), {archived: true}, 'PATCH').subscribe(info => console.log(info))
   }
 
-  addComment(data: any) {
-    console.log('add comment')
+  addComment(data: {title_comment: string, comment: string}) {
+    const res: RequestComment = {
+      taskId: this.task.id,
+      name: this.cookie.getCookie('user'),
+      title: data.title_comment,
+      comment: data.comment,
+      creation_date: new Date().toString()
+    }
+    this.http.sendRequest(this.getCommentsUrl(), res, 'POST').subscribe(info => this.comments.push(info.body))
   }
 
 }
