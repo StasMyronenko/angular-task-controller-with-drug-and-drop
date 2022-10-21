@@ -17,28 +17,22 @@ export class BoardsComponent implements OnInit{
   constructor(private http: HttpService, private ref: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.boardRequest(true)
+    this.boardRequest()
     for (let field in this.queryData) {
       // @ts-ignore
       this.queryData[field].valueChanges
       .pipe(debounce(() => timer(1000)))
       .subscribe((value: string | null) => {
-        this.boardRequest(true)
+        this.boardRequest()
         this.ref.detectChanges();
       })
       }
   }
 
-  boardRequest(validateDate=false) {
+  boardRequest() {
     let url = this.boardsUrl;
     this.http.sendRequest(url, {}, 'GET').subscribe(info=> {
-      let res: Array<BoardModel>;
-      if(validateDate) {
-        res = this.changeData([...info.body])
-      } else {
-        res = [...info.body]
-      }
-      this.boards = res
+      this.changeData([...info.body])
     })
   }
 
@@ -47,37 +41,56 @@ export class BoardsComponent implements OnInit{
     const search = this.queryData.search.value;
     const reverse = this.queryData.reverse.value;
 
-    if (search !== '') {
-      data = data.filter((element) => {
-        if (element.title.includes(search)) {
-          return true
-        }
-        return this.http.sendRequest(`http://localhost:3000/tasks?boardId=${element.id}`).subscribe(info => {
-          const tasks: Array<Task> = info.body
-          for (const task of tasks) {
-            if (task.title.includes(search)) {
-              return true
-            }
-          }
-          return false
-        })
-      })
-    }
+    const res = []
 
-    if (sortBy === 'title' || sortBy === 'creation_date') {
-      data.sort((element, next_element) => {
-        return element[sortBy] > next_element[sortBy] ? 1 : -1
-      })
-    } else if (sortBy === 'count_todo') {
-      // data.sort((element, next_element) => {
-      //   element.tasks.reduce((task) => {
-      //     if (task.progress === 'todo') {
-      //       return 1
-      //     }
-      //     return 0
-      //   }, 0)
-      // })
-    }
-    return reverse ? data.reverse() : data
+
+
+
+
+    // if (search !== '') {
+    //   data = data.filter((board) => {
+    //     if (board.title.includes(search)) {
+    //       return true
+    //     }
+    //
+    //     const res = this.http.sendRequest(`http://localhost:3000/tasks?boardId=${board.id}&title_like=${search}`, {}, 'GET').subscribe(info => {
+    //       return info.body.length > 0
+    //       // const tasks: Array<Task> = info.body
+    //       // for (const task of tasks) {
+    //       //
+    //       //   if (task.title.includes(search)) {
+    //       //     return true
+    //       //   }
+    //       // }
+    //       // return false
+    //     })
+    //     console.log(res)
+    //     return res
+    //   })
+    // }
+    //
+    // if (sortBy === 'title' || sortBy === 'creation_date') {
+    //   data.sort((element, next_element) => {
+    //     return element[sortBy] > next_element[sortBy] ? 1 : -1
+    //   })
+    // } else if (sortBy === 'count_todo') {
+    //   // data.sort((element, next_element) => {
+    //   //   element.tasks.reduce((task) => {
+    //   //     if (task.progress === 'todo') {
+    //   //       return 1
+    //   //     }
+    //   //     return 0
+    //   //   }, 0)
+    //   // })
+    // }
+    // return reverse ? data.reverse() : data
   }
+
+  // filterData(data: Array<BoardModel>, filterString: string) {
+  //   const res = data.filter((board) => {
+  //     if(board.title.includes(filterString)) {
+  //       return true
+  //     }
+  //   })
+  // }
 }
