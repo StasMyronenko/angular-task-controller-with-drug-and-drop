@@ -1,7 +1,7 @@
 <div class="boards">
   <div class="content">
     <div class="boards-grid">
-      <ng-container *ngFor="let board of boards">
+      <ng-container *ngFor="let board of boards$ | async">
           <app-board-tile class="board-content board" [board]="board"></app-board-tile>
       </ng-container>
 

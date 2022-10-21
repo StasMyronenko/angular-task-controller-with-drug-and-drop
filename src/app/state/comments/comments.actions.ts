@@ -11,7 +11,7 @@ export const removeComment = createAction(
   props<{commentId: number}>()
 )
 
-export const getBoardList = createAction(
+export const getCommentList = createAction(
   '[Comment List] Get User Board\'s Comments',
   props<{comments: ReadonlyArray<Comment>}>()
 )

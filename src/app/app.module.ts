@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { boardsReducer } from "./state/boards/boards.reducer";
 import { commentsReducer } from "./state/comments/comments.reducer";
 import { tasksReducer } from "./state/tasks/tasks.reducer";
+import {HttpService} from "./shared/services/http/http.service";
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { tasksReducer } from "./state/tasks/tasks.reducer";
     HttpClientModule,
     BoardModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
