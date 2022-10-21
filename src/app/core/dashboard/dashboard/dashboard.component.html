@@ -4,11 +4,11 @@
     <main class="dashboard-main">
       <app-validate-form
       [sortOptions]="[
-        {title: 'Title', value: 'title'},
-        {title: 'Date of creation', value: 'creation_date'},
-        {title: 'Number of to do task', value: 'count_todo'},
-        {title: 'Number of in progress task', value: 'count_in_progress'},
-        {title: 'Number of done task', value: 'count_done'},
+        {title: 'Title', value: sortOptionsEnumerate.title},
+        {title: 'Date of creation', value: sortOptionsEnumerate.creation_date},
+        {title: 'Number of to do task', value: sortOptionsEnumerate.count_todo},
+        {title: 'Number of in progress task', value: sortOptionsEnumerate.count_in_progress},
+        {title: 'Number of done task', value: sortOptionsEnumerate.count_done},
       ]"
       [search]="search"
       [sortBy]="sortBy"

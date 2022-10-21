@@ -8,6 +8,8 @@ import {getTaskList} from "../../../state/tasks/tasks.actions";
 import {HttpService} from "../../../shared/services/http/http.service";
 import {Store} from "@ngrx/store";
 import {selectBoards} from "../../../state/boards/boards.selector";
+import {sortOptionsEnumerate} from "./dashboard.model";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -15,9 +17,10 @@ import {selectBoards} from "../../../state/boards/boards.selector";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
-  sortBy = new FormControl('title');
+  sortBy = new FormControl(sortOptionsEnumerate.title);
   reverse = new FormControl(false)
   search = new FormControl('');
+  sortOptionsEnumerate = sortOptionsEnumerate;
   getUrl(table='boards') {
     const userId = this.cookie.getCookie('userId')
     const baseUrl = `http://localhost:3000/${table}`

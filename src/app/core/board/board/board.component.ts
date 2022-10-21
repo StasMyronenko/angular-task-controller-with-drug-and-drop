@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {HttpService} from "../../../shared/services/http/http.service";
 import {BoardModel, Task, TaskProgress} from "./board.model";
 import {FormControl} from "@angular/forms";
+import {sortOptionsEnumerate} from "../../dashboard/dashboard/dashboard.model";
 
 @Component({
   selector: 'app-board',
@@ -15,12 +16,12 @@ export class BoardComponent implements OnInit {
   // todo add place for archived tasks
   // todo add place for comments
 
-  sortBy = new FormControl('title');
+  sortBy = new FormControl(sortOptionsEnumerate.title);
   reverse = new FormControl(false)
   search = new FormControl('');
   board!: BoardModel;
   board_tasks!: Array<Task>;
-
+  sortOptionsEnumerate = sortOptionsEnumerate
   tasks: {todo: Array<Task>, in_progress: Array<Task>, done: Array<Task>} = {todo: [], in_progress: [], done: []};
 
   constructor(

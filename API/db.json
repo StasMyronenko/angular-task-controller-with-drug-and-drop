@@ -38,6 +38,18 @@
       "creation_date": "Tue Oct 18 2022 15:31:11 GMT+0300 (Eastern European Summer Time)",
       "userId": 2,
       "id": 1
+    },
+    {
+      "title": "Second dashboard",
+      "description": "Description of first dashboard",
+      "columns_color": {
+        "todo_color": "#5d3c3c",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Tue Oct 18 2022 14:31:11 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 2
     }
   ],
   "tasks": [
@@ -70,6 +82,16 @@
       "archived": false,
       "userId": 2,
       "id": 3
+    },
+    {
+      "boardId": 2,
+      "title": "2e",
+      "description": "wtg",
+      "creation_date": "Sat Oct 22 2022 02:38:33 GMT+0300 (Eastern European Summer Time)",
+      "progress": 1,
+      "archived": false,
+      "userId": 2,
+      "id": 4
     }
   ],
   "comments": [
