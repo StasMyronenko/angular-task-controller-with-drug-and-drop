@@ -1,21 +1,36 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {BoardModel, TaskProgress} from "../../core/board/board/board.model";
+import {BoardModel, Task, TaskProgress} from "../../core/board/board/board.model";
 import {selectTasks} from "../tasks/tasks.selector";
 import {sortOptionsEnumerate} from "../../core/dashboard/dashboard/dashboard.model";
 
 
 export const selectBoards = createFeatureSelector<ReadonlyArray<BoardModel>>('boards')
 
-export const selectReversedBoards = (isReverse: boolean = false) => createSelector(
-  selectBoards,
-  (boards) => isReverse ? [...boards].reverse() : boards
-)
-
-export const selectSortedBoards = (sortedBy = sortOptionsEnumerate.title) => createSelector(
+export const selectFilteredData = (
+  filterBy: string = '',
+  sortedBy = sortOptionsEnumerate.title,
+  isReverse: boolean = false
+) => createSelector(
   selectBoards,
   selectTasks,
   (boards, tasks) => {
-    console.log(typeof sortedBy)
+    let res = [...boards]
+    res = filterBoards(res, tasks, filterBy);
+    res = sortBoards(res, tasks, sortedBy);
+    res = reverseBoards(res, isReverse);
+    return res
+  }
+)
+
+const reverseBoards = (boards: ReadonlyArray<BoardModel>, isReverse: boolean = false): Array<BoardModel> => (
+  isReverse ? [...boards].reverse() : [...boards]
+);
+
+const sortBoards = (
+  boards: ReadonlyArray<BoardModel>,
+  tasks: ReadonlyArray<Task>,
+  sortedBy = sortOptionsEnumerate.title
+): Array<BoardModel> => {
     if (sortedBy === sortOptionsEnumerate.title) {
       return [...boards].sort((board, next_board) => {
         return board.title > next_board.title ? 1 : -1
@@ -47,14 +62,10 @@ export const selectSortedBoards = (sortedBy = sortOptionsEnumerate.title) => cre
         }
       }
     }
-)
 
-export const selectFilteredBoards = (filterBy: string = '') => createSelector(
-  selectBoards,
-  selectTasks,
-  (boards, tasks) => {
+const filterBoards = (boards: ReadonlyArray<BoardModel>, tasks: ReadonlyArray<Task>, filterBy: string = ''): Array<BoardModel> =>  {
     if (filterBy === '') {
-      return boards
+      return [...boards]
     }
     return boards.filter((board) => {
       if (board.title.includes(filterBy)) {
@@ -65,4 +76,3 @@ export const selectFilteredBoards = (filterBy: string = '') => createSelector(
       return searchedTasks.length > 0;
     })
   }
-)

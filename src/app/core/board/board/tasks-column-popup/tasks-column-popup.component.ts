@@ -30,7 +30,5 @@ export class TasksColumnPopupComponent implements OnInit {
       console.log({columns_color: data})
       this.http.sendRequest(this.getUrl(), {columns_color: data}, 'PATCH').subscribe(info => console.log(info))
     })
-
-
   }
 }

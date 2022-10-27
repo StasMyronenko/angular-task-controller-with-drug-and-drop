@@ -50,6 +50,78 @@
       "creation_date": "Tue Oct 18 2022 14:31:11 GMT+0300 (Eastern European Summer Time)",
       "userId": 2,
       "id": 2
+    },
+    {
+      "title": "Third dashboard",
+      "description": "",
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Tue Oct 25 2022 17:35:58 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "title": "4",
+      "description": "4",
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Tue Oct 25 2022 18:46:35 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "title": "5",
+      "description": "5",
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Tue Oct 25 2022 18:47:41 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "title": "6",
+      "description": "6",
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Tue Oct 25 2022 18:49:49 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "title": "7",
+      "description": "7",
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Tue Oct 25 2022 18:51:03 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "title": "8",
+      "description": "8",
+      "columns_color": {
+        "todo_color": "#4F84FF",
+        "in_progress_color": "#4F84FF",
+        "done_color": "#4F84FF"
+      },
+      "creation_date": "Tue Oct 25 2022 18:51:30 GMT+0300 (Eastern European Summer Time)",
+      "userId": 2,
+      "id": 8
     }
   ],
   "tasks": [
@@ -92,6 +164,96 @@
       "archived": false,
       "userId": 2,
       "id": 4
+    },
+    {
+      "boardId": 3,
+      "title": "1",
+      "description": "1",
+      "creation_date": "Tue Oct 25 2022 17:36:21 GMT+0300 (Eastern European Summer Time)",
+      "progress": 0,
+      "archived": false,
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "boardId": 3,
+      "title": "2",
+      "description": "2",
+      "creation_date": "Tue Oct 25 2022 17:36:24 GMT+0300 (Eastern European Summer Time)",
+      "progress": 0,
+      "archived": false,
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "boardId": 3,
+      "title": "3",
+      "description": "3",
+      "creation_date": "Tue Oct 25 2022 17:36:26 GMT+0300 (Eastern European Summer Time)",
+      "progress": 0,
+      "archived": false,
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "boardId": 3,
+      "title": "4",
+      "description": "4",
+      "creation_date": "Tue Oct 25 2022 17:36:43 GMT+0300 (Eastern European Summer Time)",
+      "progress": 0,
+      "archived": false,
+      "userId": 2,
+      "id": 8
+    },
+    {
+      "boardId": 1,
+      "title": "1",
+      "description": "1",
+      "creation_date": "Tue Oct 25 2022 17:37:03 GMT+0300 (Eastern European Summer Time)",
+      "progress": 1,
+      "archived": false,
+      "userId": 2,
+      "id": 9
+    },
+    {
+      "boardId": 1,
+      "title": "2",
+      "description": "2",
+      "creation_date": "Tue Oct 25 2022 17:37:05 GMT+0300 (Eastern European Summer Time)",
+      "progress": 1,
+      "archived": false,
+      "userId": 2,
+      "id": 10
+    },
+    {
+      "boardId": 3,
+      "title": "1",
+      "description": "1",
+      "creation_date": "Tue Oct 25 2022 17:37:19 GMT+0300 (Eastern European Summer Time)",
+      "progress": 1,
+      "archived": false,
+      "userId": 2,
+      "id": 11
+    },
+    {
+      "boardId": 3,
+      "title": "2",
+      "description": "2",
+      "creation_date": "Tue Oct 25 2022 17:37:21 GMT+0300 (Eastern European Summer Time)",
+      "progress": 1,
+      "archived": false,
+      "userId": 2,
+      "id": 12
+    },
+    {
+      "boardId": 3,
+      "title": "3",
+      "description": "3",
+      "creation_date": "Tue Oct 25 2022 17:37:23 GMT+0300 (Eastern European Summer Time)",
+      "progress": 1,
+      "archived": false,
+      "userId": 2,
+      "id": 13
     }
   ],
   "comments": [

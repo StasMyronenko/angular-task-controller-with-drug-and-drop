@@ -27,9 +27,7 @@ export class BoardComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private http: HttpService
-  ) {
-
-  }
+  ) {}
   id: number = this.activateRoute.snapshot.params['id'];
 
   getBoardUrl() {
