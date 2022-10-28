@@ -4,7 +4,7 @@ import {debounce, timer} from "rxjs";
 import {queryParametersModel} from "./boards.model";
 import {BoardModel, TaskProgress, Task} from "../../../board/board/board.model";
 import {Store} from "@ngrx/store";
-import {selectFilteredData} from "../../../../state/boards/boards.selector";
+import {selectFilteredBoards} from "../../../../state/boards/boards.selector";
 import {HttpResponse} from "@angular/common/http";
 import {getBoardList} from "../../../../state/boards/boards.actions";
 import {CookieService} from "../../../../shared/cookie/cookie.service";
@@ -17,7 +17,7 @@ import {sortOptionsEnumerate} from "../dashboard.model";
 })
 export class BoardsComponent implements OnInit{
   @Input() queryData!: queryParametersModel;
-  boards$ = this.store.select(selectFilteredData(''))
+  boards$ = this.store.select(selectFilteredBoards())
   constructor(private http: HttpService, private ref: ChangeDetectorRef, private store: Store, private cookie: CookieService) {}
 
   getUrl(table='boards') {
@@ -30,7 +30,7 @@ export class BoardsComponent implements OnInit{
     this.queryData.search.valueChanges
       .pipe(debounce(() => timer(1000)))
       .subscribe((value: string ) => {
-        this.boards$ = this.store.select(selectFilteredData(
+        this.boards$ = this.store.select(selectFilteredBoards(
           this.queryData.search.value,
           +this.queryData.sortBy.value,
           this.queryData.reverse.value
@@ -40,7 +40,7 @@ export class BoardsComponent implements OnInit{
     this.queryData.reverse.valueChanges
       .pipe(debounce(() => timer(1000)))
       .subscribe((value: boolean ) => {
-        this.boards$ = this.store.select(selectFilteredData(
+        this.boards$ = this.store.select(selectFilteredBoards(
           this.queryData.search.value,
           +this.queryData.sortBy.value,
           this.queryData.reverse.value
@@ -50,7 +50,7 @@ export class BoardsComponent implements OnInit{
     this.queryData.sortBy.valueChanges
       .pipe(debounce(() => timer(1000)))
       .subscribe((value: sortOptionsEnumerate ) => {
-        this.boards$ = this.store.select(selectFilteredData(
+        this.boards$ = this.store.select(selectFilteredBoards(
           this.queryData.search.value,
           +this.queryData.sortBy.value,
           this.queryData.reverse.value

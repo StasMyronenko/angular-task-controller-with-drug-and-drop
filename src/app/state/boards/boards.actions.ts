@@ -12,6 +12,11 @@ export const removeBoard = createAction(
   props<{boardId: number}>()
 )
 
+export const updateBoard = createAction(
+  '[Board List] Update Board By Id',
+  props<{board: BoardModel}>()
+)
+
 export const getBoardList = createAction(
   '[Board List] Get Board List',
   props<{boards: ReadonlyArray<BoardModel>}>()

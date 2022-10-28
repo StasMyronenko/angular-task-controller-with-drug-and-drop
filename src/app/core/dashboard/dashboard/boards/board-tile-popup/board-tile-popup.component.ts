@@ -1,22 +1,25 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {BoardModel, EditBoardModel} from "../../../../board/board/board.model";
 import {HttpService} from "../../../../../shared/services/http/http.service";
+import {Store} from "@ngrx/store";
+import {selectFilteredBoards} from "../../../../../state/boards/boards.selector";
+import {removeBoard, updateBoard} from "../../../../../state/boards/boards.actions";
+import {selectTasksCount} from "../../../../../state/tasks/tasks.selector";
 
 @Component({
   selector: 'app-board-tile-popup',
   templateUrl: './board-tile-popup.component.html',
   styleUrls: ['./board-tile-popup.component.scss']
 })
-// TODO Update boards list after edit/delete
 
 export class BoardTilePopupComponent implements OnInit {
   @Input() board!: BoardModel;
   tasksPerColumn!: {todo: number, in_progress: number, done: number};
   showAllInfo: boolean = false;
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private store: Store, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.tasksPerColumn = this.getTasksPerColumn()
+    this.getTasksPerColumn()
   }
 
   getBoardUrl(id?: number){
@@ -29,23 +32,21 @@ export class BoardTilePopupComponent implements OnInit {
       this.board = info.body;
       alert('Done!')
       this.showAllInfo = false
+      this.store.dispatch(updateBoard({board: this.board}))
+      this.ref.detectChanges();
     })
   }
 
-  deleteBoard(id?: number) {
+  deleteBoard(id: number) {
     const url = this.getBoardUrl(id)
-    this.http.sendRequest(url, {}, 'DELETE').subscribe(info => this.board = info.body)
-    this.showAllInfo = false
+    this.http.sendRequest(url, {}, 'DELETE').subscribe(info => this.board = info.body);
+    this.store.dispatch(removeBoard({boardId: id}));
+    this.ref.detectChanges();
   }
 
-  getTasksPerColumn() {
-    const res = {
-      todo: 0,
-      in_progress: 0,
-      done: 0
-    }
-
-    // TODO give logic
-    return res
+  getTasksPerColumn(){
+    this.store.select(selectTasksCount(this.board.id)).subscribe(data=>{
+      this.tasksPerColumn = data
+    })
   }
 }

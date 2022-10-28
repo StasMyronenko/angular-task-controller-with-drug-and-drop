@@ -7,7 +7,6 @@ import {getBoardList} from "../../../state/boards/boards.actions";
 import {getTaskList} from "../../../state/tasks/tasks.actions";
 import {HttpService} from "../../../shared/services/http/http.service";
 import {Store} from "@ngrx/store";
-import {selectBoards} from "../../../state/boards/boards.selector";
 import {sortOptionsEnumerate} from "./dashboard.model";
 
 

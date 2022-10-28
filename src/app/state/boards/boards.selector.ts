@@ -6,7 +6,7 @@ import {sortOptionsEnumerate} from "../../core/dashboard/dashboard/dashboard.mod
 
 export const selectBoards = createFeatureSelector<ReadonlyArray<BoardModel>>('boards')
 
-export const selectFilteredData = (
+export const selectFilteredBoards = (
   filterBy: string = '',
   sortedBy = sortOptionsEnumerate.title,
   isReverse: boolean = false

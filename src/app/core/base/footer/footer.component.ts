@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from "@ngrx/store";
-import {selectBoards} from "../../../state/boards/boards.selector";
 
 @Component({
   selector: 'app-footer',
@@ -8,8 +6,8 @@ import {selectBoards} from "../../../state/boards/boards.selector";
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  boards$ = this.store.select(selectBoards)
-  constructor(private store: Store) { }
+
+  constructor() { }
 
   ngOnInit(): void {
   }
