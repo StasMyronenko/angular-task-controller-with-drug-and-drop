@@ -3,7 +3,7 @@ export interface RequestBoardModel {
   description: string,
   columns_color: ColumnsColor
   creation_date: string,
-  userId: string
+  userId: number
 }
 
 export interface BoardModel extends  RequestBoardModel{

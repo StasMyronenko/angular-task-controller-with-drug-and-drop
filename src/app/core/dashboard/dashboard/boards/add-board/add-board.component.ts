@@ -28,14 +28,11 @@ export class AddBoardComponent implements OnInit {
           done_color: '#4F84FF',
       },
       creation_date: new Date().toString(),
-      userId: this.cookie.getCookie("userId")
+      userId: +this.cookie.getCookie("userId")
     }
     this.http.sendRequest(this.postBoardUrl, req, 'POST').subscribe(
-      info=>{
-        // https://www.google.com/search?q=how+to+dispatch+data+from+request+angular&oq=how+to+dispatch+data+from+request+angular&aqs=chrome..69i57.10746j0j7&sourceid=chrome&ie=UTF-8
-        // todo in store we give undefined and i don't know why
-        console.log(info.body)
-        this.store.dispatch(addBoard(info.body))
+      async (info)=>{
+        this.store.dispatch(addBoard({board: info.body}))
         this.showAddWindow = false
       }
     )
