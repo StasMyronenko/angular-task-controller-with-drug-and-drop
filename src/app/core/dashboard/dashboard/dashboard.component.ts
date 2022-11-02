@@ -7,7 +7,7 @@ import {getBoardList} from "../../../state/boards/boards.actions";
 import {getTaskList} from "../../../state/tasks/tasks.actions";
 import {HttpService} from "../../../shared/services/http/http.service";
 import {Store} from "@ngrx/store";
-import {sortOptionsEnumerate} from "./dashboard.model";
+import {sortOptionsEnumerateBoard} from "./dashboard.model";
 
 
 @Component({
@@ -16,10 +16,10 @@ import {sortOptionsEnumerate} from "./dashboard.model";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
-  sortBy = new FormControl(sortOptionsEnumerate.title);
+  sortBy = new FormControl(sortOptionsEnumerateBoard.title);
   reverse = new FormControl(false)
   search = new FormControl('');
-  sortOptionsEnumerate = sortOptionsEnumerate;
+  sortOptionsEnumerate = sortOptionsEnumerateBoard;
   getUrl(table='boards') {
     const userId = this.cookie.getCookie('userId')
     const baseUrl = `http://localhost:3000/${table}`

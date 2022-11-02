@@ -8,7 +8,7 @@ import {selectFilteredBoards} from "../../../../state/boards/boards.selector";
 import {HttpResponse} from "@angular/common/http";
 import {getBoardList} from "../../../../state/boards/boards.actions";
 import {CookieService} from "../../../../shared/cookie/cookie.service";
-import {sortOptionsEnumerate} from "../dashboard.model";
+import {sortOptionsEnumerateBoard} from "../dashboard.model";
 
 @Component({
   selector: 'app-boards',
@@ -49,7 +49,7 @@ export class BoardsComponent implements OnInit{
     })
     this.queryData.sortBy.valueChanges
       .pipe(debounce(() => timer(1000)))
-      .subscribe((value: sortOptionsEnumerate ) => {
+      .subscribe((value: sortOptionsEnumerateBoard ) => {
         this.boards$ = this.store.select(selectFilteredBoards(
           this.queryData.search.value,
           +this.queryData.sortBy.value,

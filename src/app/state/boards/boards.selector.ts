@@ -1,14 +1,14 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {BoardModel, Task, TaskProgress} from "../../core/board/board/board.model";
 import {selectTasks} from "../tasks/tasks.selector";
-import {sortOptionsEnumerate} from "../../core/dashboard/dashboard/dashboard.model";
+import {sortOptionsEnumerateBoard} from "../../core/dashboard/dashboard/dashboard.model";
 
 
 export const selectBoards = createFeatureSelector<ReadonlyArray<BoardModel>>('boards')
 
 export const selectFilteredBoards = (
   filterBy: string = '',
-  sortedBy = sortOptionsEnumerate.title,
+  sortedBy = sortOptionsEnumerateBoard.title,
   isReverse: boolean = false
 ) => createSelector(
   selectBoards,
@@ -29,13 +29,13 @@ const reverseBoards = (boards: ReadonlyArray<BoardModel>, isReverse: boolean = f
 const sortBoards = (
   boards: ReadonlyArray<BoardModel>,
   tasks: ReadonlyArray<Task>,
-  sortedBy = sortOptionsEnumerate.title
+  sortedBy = sortOptionsEnumerateBoard.title
 ): Array<BoardModel> => {
-    if (sortedBy === sortOptionsEnumerate.title) {
+    if (sortedBy === sortOptionsEnumerateBoard.title) {
       return [...boards].sort((board, next_board) => {
         return board.title > next_board.title ? 1 : -1
       })
-    } else if (sortedBy === sortOptionsEnumerate.creation_date) {
+    } else if (sortedBy === sortOptionsEnumerateBoard.creation_date) {
       return [...boards].sort((board, next_board) => {
         return +(new Date(board.creation_date)) > +(new Date(next_board.creation_date)) ? 1 : -1
       })
@@ -53,11 +53,11 @@ const sortBoards = (
       }
 
       switch (sortedBy){
-        case (sortOptionsEnumerate.count_todo):
+        case (sortOptionsEnumerateBoard.count_todo):
           return sortBoards(TaskProgress.todo)
-        case (sortOptionsEnumerate.count_in_progress):
+        case (sortOptionsEnumerateBoard.count_in_progress):
           return sortBoards(TaskProgress.in_progress)
-        case (sortOptionsEnumerate.count_done):
+        case (sortOptionsEnumerateBoard.count_done):
           return sortBoards(TaskProgress.done)
         }
       }

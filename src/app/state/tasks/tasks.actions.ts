@@ -1,6 +1,6 @@
 import {createAction, props} from "@ngrx/store";
 
-import {Task} from "../../core/board/board/board.model";
+import {Task, TaskProgress} from "../../core/board/board/board.model";
 
 export const addTask = createAction(
   '[Task List] Add Task',
@@ -15,4 +15,14 @@ export const removeTask = createAction(
 export const getTaskList = createAction(
   '[Task List] Get Task List',
   props<{tasks: ReadonlyArray<Task>}>()
+)
+
+export const changeProgress = createAction(
+  '[Task List] Change Task Progress',
+  props<{taskId: number, changeTo: TaskProgress}>()
+)
+
+export const editTask = createAction(
+  '[Task List] Edit Task',
+  props<{newData: Task}>()
 )

@@ -1,219 +1,152 @@
 {
   "users": [
     {
-      "email": "1@g.c",
-      "password": "$2a$10$zwUEUVkUFeush5tQDy9H/eOeLq2qa1vAIcZFnheHSpm8.PCHtOc/S",
-      "name": "123",
+      "email": "2@g.c",
+      "password": "$2a$10$zTnvWQ4Rq1Cro.l17/RRceHNatOCWOdpaGZJu69vM914omL8gI7oi",
+      "name": "Stas",
       "repeat_password": "12345678",
       "id": 1
-    },
-    {
-      "email": "2@g.c",
-      "name": "Stas",
-      "password": "$2a$10$Z/ng3oRyjJL4c.kCE5I/jOMWjnbmQe3HAk7X9zS5OsjtWg42CSzL.",
-      "id": 2
-    },
-    {
-      "email": "3@g.c",
-      "password": "$2a$10$6LzyQx43/TgO3Z79J7zA5eMyvLVrqC64D0tRuDC/jYR.paqv7zGXu",
-      "id": 3
-    },
-    {
-      "email": "4@g.c",
-      "password": "$2a$10$Od1AK/S0eufC0.D4i3YNEubw.s3bA4CqRx7kbdIb9NFoMhqm2Td6W",
-      "name": "Stas",
-      "repeat_password": "12345678",
-      "id": 4
     }
   ],
   "boards": [
     {
-      "title": "First dashboard",
-      "description": "Description of first dashboard",
+      "title": "First board",
+      "description": "It is test board",
       "columns_color": {
-        "todo_color": "#5d3c3c",
+        "todo_color": "#4F84FF",
         "in_progress_color": "#4F84FF",
         "done_color": "#4F84FF"
       },
-      "creation_date": "Tue Oct 18 2022 15:31:11 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
+      "creation_date": "Tue Nov 01 2022 17:30:23 GMT+0200 (Eastern European Standard Time)",
+      "userId": 1,
       "id": 1
     },
     {
-      "title": "Second dashboard",
-      "description": "Description of first dashboard",
+      "title": "Second BOard",
+      "description": "2",
       "columns_color": {
-        "todo_color": "#5d3c3c",
+        "todo_color": "#4F84FF",
         "in_progress_color": "#4F84FF",
         "done_color": "#4F84FF"
       },
-      "creation_date": "Tue Oct 18 2022 14:31:11 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 2
+      "creation_date": "Tue Nov 01 2022 17:31:18 GMT+0200 (Eastern European Standard Time)",
+      "userId": 1,
+      "id": 3
     },
     {
-      "title": "Third dashboard",
+      "title": "A",
       "description": "",
       "columns_color": {
         "todo_color": "#4F84FF",
         "in_progress_color": "#4F84FF",
         "done_color": "#4F84FF"
       },
-      "creation_date": "Tue Oct 25 2022 17:35:58 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 3
+      "creation_date": "Tue Nov 01 2022 17:42:12 GMT+0200 (Eastern European Standard Time)",
+      "userId": 1,
+      "id": 4
     }
   ],
   "tasks": [
     {
-      "boardId": 1,
-      "title": "First task changed ",
-      "description": "desc changed",
-      "creation_date": "Tue Oct 18 2022 15:33:42 GMT+0300 (Eastern European Summer Time)",
+      "boardId": 3,
+      "title": "1",
+      "description": "",
+      "creation_date": "Tue Nov 01 2022 17:31:49 GMT+0200 (Eastern European Standard Time)",
       "progress": 0,
       "archived": false,
-      "userId": 2,
+      "userId": 1,
       "id": 1
     },
     {
-      "boardId": 1,
-      "title": "task",
-      "description": "task",
-      "creation_date": "Thu Oct 20 2022 01:24:58 GMT+0300 (Eastern European Summer Time)",
+      "boardId": 3,
+      "title": "2",
+      "description": "3",
+      "creation_date": "Tue Nov 01 2022 17:31:54 GMT+0200 (Eastern European Standard Time)",
       "progress": 0,
       "archived": false,
-      "userId": 2,
+      "userId": 1,
       "id": 2
     },
     {
-      "boardId": 1,
-      "title": "task",
-      "description": "task",
-      "creation_date": "Thu Oct 20 2022 01:25:00 GMT+0300 (Eastern European Summer Time)",
-      "progress": 0,
-      "archived": false,
-      "userId": 2,
-      "id": 3
-    },
-    {
-      "boardId": 2,
-      "title": "2e",
-      "description": "wtg",
-      "creation_date": "Sat Oct 22 2022 02:38:33 GMT+0300 (Eastern European Summer Time)",
-      "progress": 1,
-      "archived": false,
-      "userId": 2,
-      "id": 4
-    },
-    {
       "boardId": 3,
       "title": "1",
       "description": "1",
-      "creation_date": "Tue Oct 25 2022 17:36:21 GMT+0300 (Eastern European Summer Time)",
+      "creation_date": "Tue Nov 01 2022 17:32:01 GMT+0200 (Eastern European Standard Time)",
+      "progress": 1,
+      "archived": false,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "boardId": 1,
+      "title": "b",
+      "description": "a",
+      "creation_date": "Tue Nov 01 2022 17:34:06 GMT+0200 (Eastern European Standard Time)",
       "progress": 0,
       "archived": false,
-      "userId": 2,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "boardId": 1,
+      "title": "v",
+      "description": "B",
+      "creation_date": "Tue Nov 01 2022 17:34:08 GMT+0200 (Eastern European Standard Time)",
+      "progress": 0,
+      "archived": false,
+      "userId": 1,
       "id": 5
     },
     {
-      "boardId": 3,
-      "title": "2",
-      "description": "2",
-      "creation_date": "Tue Oct 25 2022 17:36:24 GMT+0300 (Eastern European Summer Time)",
-      "progress": 0,
+      "boardId": 1,
+      "title": "b",
+      "description": "b",
+      "creation_date": "Tue Nov 01 2022 17:34:10 GMT+0200 (Eastern European Standard Time)",
+      "progress": 1,
       "archived": false,
-      "userId": 2,
+      "userId": 1,
       "id": 6
     },
     {
-      "boardId": 3,
-      "title": "3",
-      "description": "3",
-      "creation_date": "Tue Oct 25 2022 17:36:26 GMT+0300 (Eastern European Summer Time)",
+      "boardId": 4,
+      "title": "B",
+      "description": "",
+      "creation_date": "Wed Nov 02 2022 12:32:51 GMT+0200 (Eastern European Standard Time)",
       "progress": 0,
       "archived": false,
-      "userId": 2,
+      "userId": 1,
       "id": 7
     },
     {
-      "boardId": 3,
-      "title": "4",
-      "description": "4",
-      "creation_date": "Tue Oct 25 2022 17:36:43 GMT+0300 (Eastern European Summer Time)",
-      "progress": 0,
+      "boardId": 4,
+      "title": "A",
+      "description": "",
+      "creation_date": "Wed Nov 02 2022 12:32:53 GMT+0200 (Eastern European Standard Time)",
+      "progress": 1,
       "archived": false,
-      "userId": 2,
+      "userId": 1,
       "id": 8
     },
     {
-      "boardId": 1,
-      "title": "1",
-      "description": "1",
-      "creation_date": "Tue Oct 25 2022 17:37:03 GMT+0300 (Eastern European Summer Time)",
+      "boardId": 4,
+      "title": "B",
+      "description": "",
+      "creation_date": "Wed Nov 02 2022 12:33:12 GMT+0200 (Eastern European Standard Time)",
       "progress": 1,
       "archived": false,
-      "userId": 2,
+      "userId": 1,
       "id": 9
     },
     {
-      "boardId": 1,
-      "title": "2",
-      "description": "2",
-      "creation_date": "Tue Oct 25 2022 17:37:05 GMT+0300 (Eastern European Summer Time)",
-      "progress": 1,
+      "boardId": 4,
+      "title": "A",
+      "description": "a",
+      "creation_date": "Wed Nov 02 2022 12:33:15 GMT+0200 (Eastern European Standard Time)",
+      "progress": 0,
       "archived": false,
-      "userId": 2,
+      "userId": 1,
       "id": 10
-    },
-    {
-      "boardId": 3,
-      "title": "1",
-      "description": "1",
-      "creation_date": "Tue Oct 25 2022 17:37:19 GMT+0300 (Eastern European Summer Time)",
-      "progress": 1,
-      "archived": false,
-      "userId": 2,
-      "id": 11
-    },
-    {
-      "boardId": 3,
-      "title": "2",
-      "description": "2",
-      "creation_date": "Tue Oct 25 2022 17:37:21 GMT+0300 (Eastern European Summer Time)",
-      "progress": 1,
-      "archived": false,
-      "userId": 2,
-      "id": 12
-    },
-    {
-      "boardId": 3,
-      "title": "3",
-      "description": "3",
-      "creation_date": "Tue Oct 25 2022 17:37:23 GMT+0300 (Eastern European Summer Time)",
-      "progress": 1,
-      "archived": false,
-      "userId": 2,
-      "id": 13
     }
   ],
-  "comments": [
-    {
-      "taskId": 1,
-      "name": "Stas",
-      "title": "Hold me on",
-      "comment": "I go with you",
-      "creation_date": "Tue Oct 18 2022 16:44:49 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 3
-    },
-    {
-      "taskId": 1,
-      "name": "Stas",
-      "title": "ewf",
-      "comment": "erg",
-      "creation_date": "Tue Oct 18 2022 17:05:33 GMT+0300 (Eastern European Summer Time)",
-      "userId": 2,
-      "id": 4
-    }
-  ]
+  "comments": []
 }

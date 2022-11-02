@@ -1,3 +1,5 @@
+import {sortOptionsEnumerateBoard} from "../../dashboard/dashboard/dashboard.model";
+
 export interface RequestBoardModel {
   title: string,
   description: string,
@@ -51,4 +53,9 @@ export enum TaskProgress {
 export interface EditBoardModel {
   title: string,
   description?: string,
+}
+
+export enum sortOptionsEnumerateTask {
+  title,
+  creation_date,
 }

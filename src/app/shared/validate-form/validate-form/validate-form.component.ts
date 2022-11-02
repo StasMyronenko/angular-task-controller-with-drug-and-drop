@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {sortOption} from "./validate-form.model";
-import {sortOptionsEnumerate} from "../../../core/dashboard/dashboard/dashboard.model";
 
 @Component({
   selector: 'app-validate-form',
@@ -10,7 +9,7 @@ import {sortOptionsEnumerate} from "../../../core/dashboard/dashboard/dashboard.
 })
 export class ValidateFormComponent implements OnInit {
   @Input() sortOptions: Array<sortOption> = [];
-  @Input() sortBy = new FormControl(sortOptionsEnumerate.title);
+  @Input() sortBy = new FormControl();
   @Input() reverse = new FormControl(false)
   @Input() search = new FormControl('');
   @Input() placeholderSearch: string = '';

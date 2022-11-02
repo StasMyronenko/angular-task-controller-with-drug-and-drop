@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import {Comment, RequestComment, Task, TaskProgress} from "../board.model";
 import {HttpService} from "../../../../shared/services/http/http.service";
 import {CookieService} from "../../../../shared/cookie/cookie.service";
+import {Store} from "@ngrx/store";
+import {editTask} from "../../../../state/tasks/tasks.actions";
 
 @Component({
   selector: 'app-task',
@@ -14,7 +16,7 @@ export class TaskComponent implements OnInit {
   comments!: Array<Comment>;
   showTaskSettings = false
 
-  constructor(private http: HttpService, private cookie: CookieService) { }
+  constructor(private http: HttpService, private cookie: CookieService, private store: Store) { }
 
   ngOnInit(): void {
     this.http.sendRequest(this.getCommentsUrl(true), {}, 'GET').subscribe(info => {
@@ -31,7 +33,9 @@ export class TaskComponent implements OnInit {
   }
 
   editTask(data: {title: string, description: string}) {
-    this.http.sendRequest(this.getTaskUrl(), data, 'PATCH').subscribe(info => console.log(info))
+    this.http.sendRequest(this.getTaskUrl(), data, 'PATCH').subscribe(
+      info => this.store.dispatch(editTask({newData: info.body}))
+    )
   }
 
   deleteTask() {
@@ -53,4 +57,7 @@ export class TaskComponent implements OnInit {
     this.http.sendRequest(this.getCommentsUrl(), res, 'POST').subscribe(info => this.comments.push(info.body))
   }
 
+  drag(event: DragEvent) {
+   event.dataTransfer?.setData('taskId', this.task.id.toString())
+  }
 }

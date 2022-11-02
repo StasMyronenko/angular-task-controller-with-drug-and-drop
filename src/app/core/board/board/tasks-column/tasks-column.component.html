@@ -1,4 +1,4 @@
-<section class="tasks-column" [ngStyle]="{'background': bgColor}">
+<section class="tasks-column" [ngStyle]="{'background': bgColor}" (dragover)="allowDrop($event)" (drop)="drop($event)">
   <header class="tasks-column-header">
     <h3 class="tasks-column-title">{{title}}</h3>
     <app-tasks-column-popup
@@ -7,9 +7,12 @@
       [colorObject]="colorObject"
     ></app-tasks-column-popup>
   </header>
+  <main >
   <ng-container *ngFor="let task of tasks">
     <app-task [task]="task" [boardId]="boardId" *ngIf="!task.archived"></app-task>
   </ng-container>
+  </main>
+
   <app-add-task [progress]="progress" [boardId]="boardId"></app-add-task>
 </section>
 

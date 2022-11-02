@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpService} from "../../../shared/services/http/http.service";
-import {BoardModel, Task, TaskProgress} from "./board.model";
+import {BoardModel, sortOptionsEnumerateTask, Task} from "./board.model";
 import {FormControl} from "@angular/forms";
-import {sortOptionsEnumerate} from "../../dashboard/dashboard/dashboard.model";
+import {Store} from "@ngrx/store";
+import {getTaskList} from "../../../state/tasks/tasks.actions";
+import {selectFilteredTasksByProcess} from "../../../state/tasks/tasks.selector";
+import {debounce, timer} from "rxjs";
 
 @Component({
   selector: 'app-board',
@@ -11,22 +14,21 @@ import {sortOptionsEnumerate} from "../../dashboard/dashboard/dashboard.model";
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  // todo setting and task settings
   // todo add info on page after add it in db without reload
   // todo add place for archived tasks
   // todo add place for comments
 
-  sortBy = new FormControl(sortOptionsEnumerate.title);
+  sortBy = new FormControl(sortOptionsEnumerateTask.title);
   reverse = new FormControl(false)
   search = new FormControl('');
   board!: BoardModel;
-  board_tasks!: Array<Task>;
-  sortOptionsEnumerate = sortOptionsEnumerate
+  sortOptionsEnumerate = sortOptionsEnumerateTask
   tasks: {todo: Array<Task>, in_progress: Array<Task>, done: Array<Task>} = {todo: [], in_progress: [], done: []};
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private http: HttpService
+    private http: HttpService,
+    private store: Store
   ) {}
   id: number = this.activateRoute.snapshot.params['id'];
 
@@ -42,25 +44,38 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
     this.http.sendRequest(this.getBoardUrl(), {}, 'GET').subscribe(info => {
       this.board = info.body
-
       this.http.sendRequest(this.getTasksUrl(), {}, 'GET').subscribe(info => {
-        this.board_tasks = info.body
-        for (let task of this.board_tasks) {
-          switch (task.progress){
-            case TaskProgress.todo:
-              this.tasks.todo.push(task)
-              break;
-            case TaskProgress.in_progress:
-              this.tasks.in_progress.push(task)
-              break;
-            case TaskProgress.done:
-              this.tasks.done.push(task)
-              break;
-          }
-        }
+        this.store.dispatch(getTaskList({ tasks: info.body }))
+        this.store.select(selectFilteredTasksByProcess()).subscribe(
+          tasks => this.tasks = tasks
+        );
       })
     })
 
+    this.search.valueChanges.pipe(debounce(() => timer(1000))).subscribe(
+      data => {
+      this.store.select(selectFilteredTasksByProcess(this.search.value, Number(this.sortBy.value), this.reverse.value)).subscribe(
+        tasks => this.tasks = tasks
+      );
+      }
+    )
+
+    this.sortBy.valueChanges.pipe(debounce(() => timer(1000))).subscribe(
+      data => {
+        console.log(this.sortBy.value)
+      this.store.select(selectFilteredTasksByProcess(this.search.value, Number(this.sortBy.value), this.reverse.value)).subscribe(
+        tasks => this.tasks = tasks
+      );
+      }
+    )
+
+    this.reverse.valueChanges.pipe(debounce(() => timer(1000))).subscribe(
+      data => {
+      this.store.select(selectFilteredTasksByProcess(this.search.value, Number(this.sortBy.value), this.reverse.value)).subscribe(
+        tasks => this.tasks = tasks
+      );
+      }
+    )
   }
 
 }

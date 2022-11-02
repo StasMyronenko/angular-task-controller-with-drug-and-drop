@@ -1,4 +1,4 @@
-export enum sortOptionsEnumerate {
+export enum sortOptionsEnumerateBoard {
   title,
   creation_date,
   count_todo,
