@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpService} from "../../../shared/services/http/http.service";
 import {BoardModel, sortOptionsEnumerateTask, Task} from "./board.model";
 import {FormControl} from "@angular/forms";
@@ -15,8 +15,6 @@ import {removeBoard} from "../../../state/boards/boards.actions";
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  // todo add place for archived tasks
-
   sortBy = new FormControl(sortOptionsEnumerateTask.title);
   reverse = new FormControl(false)
   search = new FormControl('');
@@ -27,7 +25,8 @@ export class BoardComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private http: HttpService,
-    private store: Store
+    private store: Store,
+    private router: Router
   ) {}
   id: number = this.activateRoute.snapshot.params['id'];
 
@@ -43,7 +42,7 @@ export class BoardComponent implements OnInit {
   deleteBoard() {
     this.http.sendRequest(this.getBoardUrl(), {}, 'DELETE').subscribe(info => this.board = info.body);
     this.store.dispatch(removeBoard({boardId: this.id}));
-    // todo redirect here
+    this.router.navigate(['/dashboard'])
   }
 
   ngOnInit(): void {
