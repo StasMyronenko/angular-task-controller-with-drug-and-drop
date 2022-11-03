@@ -13,6 +13,7 @@ import {FormModule} from "../../shared/form/form.module";
 import { TaskComponent } from './board/task/task.component';
 import {ButtonModule} from "../../shared/button/button.module";
 import { CommentComponent } from './board/comment/comment.component';
+import { ArchiveComponent } from './board/archive/archive.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CommentComponent } from './board/comment/comment.component';
     TasksColumnPopupComponent,
     AddTaskComponent,
     TaskComponent,
-    CommentComponent
+    CommentComponent,
+    ArchiveComponent
   ],
   imports: [
     CommonModule,

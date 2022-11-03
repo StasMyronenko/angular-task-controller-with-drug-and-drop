@@ -1,0 +1,29 @@
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255, .6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  width: 900px;
+  background: #4F84FF;
+  padding: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  h3 {
+    font-family: BlackerSansText;
+    font-size: 2rem;
+    color: #FFFFFF;
+  }
+}

@@ -1,6 +1,6 @@
 <div class="task" draggable="true" (dragstart)="drag($event)">
   <h4 class="task-title">{{task.title}}</h4>
-  <i class="fa-solid fa-ellipsis task-ellipsis" (click)="showTaskSettings = !showTaskSettings"></i>
+  <app-ellipsis-button [color]="'#fff'" [size]="'1.5rem'" (click)="showTaskSettings = !showTaskSettings"></app-ellipsis-button>
 </div>
 
 <div class="task-settings" *ngIf="showTaskSettings">
@@ -25,10 +25,10 @@
 
       <app-button [title]="'Delete Task'" (onSubmit)="deleteTask()" class="task-settings-button"></app-button>
 
-      <app-button [title]="'Archive Task'" (onSubmit)="archiveTask()" class="task-settings-button"></app-button>
+      <app-button [title]="archived ? 'Unzip Task' : 'Archive Task'" (onSubmit)="archiveTask()" class="task-settings-button"></app-button>
       <hr>
       <div class="comments-settings">
-        <p class="comments-settings-count">Comments Count: {{comments.length}}</p>
+        <p class="comments-settings-count">Comments Count: {{countComments$ | async}}</p>
         <app-form
           [data]="[
             {placeholder: 'Add Title Comment', type: 'text', name: 'title_comment'},
@@ -40,7 +40,7 @@
         ></app-form>
       </div>
       <div class="comments">
-        <ng-container *ngFor="let comment of comments">
+        <ng-container *ngFor="let comment of comments$ | async">
           <app-comment [comment]="comment"></app-comment>
         </ng-container>
       </div>

@@ -12,6 +12,7 @@
         [reverse]="reverse"
         [placeholderSearch]="'Search task by name'"
       ></app-validate-form>
+      <app-button [title]="'Delete Board'" [color]="'#fff'" [bgColor]="'#4F84FF'" (onSubmit)="deleteBoard()" ></app-button>
     </header>
     <main class="board-main">
       <app-tasks-column
@@ -39,5 +40,8 @@
         [progress]="2"
       ></app-tasks-column>
     </main>
+    <section>
+      <app-archive></app-archive>
+    </section>
   </div>
 </section>

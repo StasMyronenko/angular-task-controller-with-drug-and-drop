@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Input} from '@angular/core';
 import {RequestTask, TaskProgress} from "../board.model";
 import {HttpService} from "../../../../shared/services/http/http.service";
+import {Store} from "@ngrx/store";
+import {addTask} from "../../../../state/tasks/tasks.actions";
 
 @Component({
   selector: 'app-add-task',
@@ -12,7 +14,7 @@ export class AddTaskComponent implements OnInit {
   @Input() progress!: TaskProgress;
 
   showAddTaskPopUp = false;
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private store: Store) { }
 
   getTasksUrl() {
     return `http://localhost:3000/tasks`
@@ -27,10 +29,12 @@ export class AddTaskComponent implements OnInit {
       progress: this.progress,
       archived: false
     }
-    this.http.sendRequest(this.getTasksUrl(), res, 'POST').subscribe(info => console.log(info))
+    this.http.sendRequest(this.getTasksUrl(), res, 'POST').subscribe(info => {
+      this.store.dispatch(addTask({task: info.body}))
+    });
+
+    this.showAddTaskPopUp = false;
   }
-
-
 
   ngOnInit(): void {
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Comment} from "../board.model";
 import {HttpService} from "../../../../shared/services/http/http.service";
+import {Store} from "@ngrx/store";
+import {removeComment} from "../../../../state/comments/comments.actions";
 
 @Component({
   selector: 'app-comment',
@@ -10,7 +12,7 @@ import {HttpService} from "../../../../shared/services/http/http.service";
 export class CommentComponent implements OnInit {
   @Input() comment!: Comment;
   // todo update delete without reload
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private store: Store) { }
   getCommentUrl() {
     return 'http://localhost:3000/comments/' + this.comment.id.toString()
   }
@@ -18,7 +20,9 @@ export class CommentComponent implements OnInit {
   }
 
   deleteComment() {
-    this.http.sendRequest(this.getCommentUrl(), {}, 'DELETE').subscribe(info => console.log(info))
+    this.http.sendRequest(this.getCommentUrl(), {}, 'DELETE').subscribe(info => {
+      this.store.dispatch(removeComment({commentId: this.comment?.id}))
+    })
   }
 
 }

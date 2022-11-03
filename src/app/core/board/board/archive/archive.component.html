@@ -1,0 +1,19 @@
+<app-button
+  [title]="'Archived Tasks'"
+  [color]="'#fff'"
+  [bgColor]="'#4F84FF'"
+  (onSubmit)="showAllInfo = !showAllInfo"
+></app-button>
+<div class="popup" *ngIf="showAllInfo">
+  <div class="content">
+    <header class="header">
+      <h3>Archived Tasks</h3>
+      <app-xmark (onXmark)="showAllInfo = !showAllInfo"></app-xmark>
+    </header>
+    <main>
+      <ng-container *ngFor="let task of tasks$ | async">
+        <app-task [task]="task" [archived]="true"></app-task>
+      </ng-container>
+    </main>
+  </div>
+</div>

@@ -3,7 +3,9 @@ import {Comment, RequestComment, Task, TaskProgress} from "../board.model";
 import {HttpService} from "../../../../shared/services/http/http.service";
 import {CookieService} from "../../../../shared/cookie/cookie.service";
 import {Store} from "@ngrx/store";
-import {editTask} from "../../../../state/tasks/tasks.actions";
+import {editTask, removeTask} from "../../../../state/tasks/tasks.actions";
+import {selectAllComments, selectCountComments} from "../../../../state/comments/comments.selector";
+import {addComment, getCommentList} from "../../../../state/comments/comments.actions";
 
 @Component({
   selector: 'app-task',
@@ -12,15 +14,16 @@ import {editTask} from "../../../../state/tasks/tasks.actions";
 })
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
-  @Input() boardId!: number;
-  comments!: Array<Comment>;
+  @Input() archived: boolean = false;
+  comments$ = this.store.select(selectAllComments);
+  countComments$ = this.store.select(selectCountComments);
   showTaskSettings = false
 
   constructor(private http: HttpService, private cookie: CookieService, private store: Store) { }
 
   ngOnInit(): void {
     this.http.sendRequest(this.getCommentsUrl(true), {}, 'GET').subscribe(info => {
-      this.comments = info.body
+      this.store.dispatch(getCommentList({comments: info.body}))
     })
   }
 
@@ -39,11 +42,18 @@ export class TaskComponent implements OnInit {
   }
 
   deleteTask() {
-    this.http.sendRequest(this.getTaskUrl(), {}, 'DELETE').subscribe(info => console.log(info))
+    this.http.sendRequest(this.getTaskUrl(), {}, 'DELETE').subscribe(info => {
+        this.store.dispatch(removeTask({taskId: this.task.id}));
+      }
+    )
+    this.showTaskSettings = false
   }
 
   archiveTask() {
-    this.http.sendRequest(this.getTaskUrl(), {archived: true}, 'PATCH').subscribe(info => console.log(info))
+    this.http.sendRequest(this.getTaskUrl(), {archived: !this.archived}, 'PATCH').subscribe(info => {
+      this.store.dispatch(editTask({newData: info.body}))
+    })
+    this.showTaskSettings = false
   }
 
   addComment(data: {title_comment: string, comment: string}) {
@@ -54,7 +64,11 @@ export class TaskComponent implements OnInit {
       comment: data.comment,
       creation_date: new Date().toString()
     }
-    this.http.sendRequest(this.getCommentsUrl(), res, 'POST').subscribe(info => this.comments.push(info.body))
+    this.http.sendRequest(this.getCommentsUrl(), res, 'POST').subscribe(
+      info => this.store.dispatch(
+        addComment({comment: info.body})
+      )
+    )
   }
 
   drag(event: DragEvent) {

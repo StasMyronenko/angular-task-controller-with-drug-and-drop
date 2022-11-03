@@ -7,6 +7,7 @@ import {Store} from "@ngrx/store";
 import {getTaskList} from "../../../state/tasks/tasks.actions";
 import {selectFilteredTasksByProcess} from "../../../state/tasks/tasks.selector";
 import {debounce, timer} from "rxjs";
+import {removeBoard} from "../../../state/boards/boards.actions";
 
 @Component({
   selector: 'app-board',
@@ -14,9 +15,7 @@ import {debounce, timer} from "rxjs";
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  // todo add info on page after add it in db without reload
   // todo add place for archived tasks
-  // todo add place for comments
 
   sortBy = new FormControl(sortOptionsEnumerateTask.title);
   reverse = new FormControl(false)
@@ -40,6 +39,12 @@ export class BoardComponent implements OnInit {
     return `http://localhost:3000/tasks?boardId=${this.board.id}`
   }
 
+
+  deleteBoard() {
+    this.http.sendRequest(this.getBoardUrl(), {}, 'DELETE').subscribe(info => this.board = info.body);
+    this.store.dispatch(removeBoard({boardId: this.id}));
+    // todo redirect here
+  }
 
   ngOnInit(): void {
     this.http.sendRequest(this.getBoardUrl(), {}, 'GET').subscribe(info => {

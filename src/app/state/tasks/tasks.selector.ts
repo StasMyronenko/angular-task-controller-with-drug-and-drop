@@ -75,3 +75,10 @@ export const selectFilteredTasksByProcess = (
     }
   );
 }
+
+export const selectArchivedTasks = createSelector(
+  selectTasks,
+  (tasks) => {
+    return tasks.filter(task => task.archived)
+  }
+)

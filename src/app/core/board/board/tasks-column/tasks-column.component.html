@@ -9,7 +9,7 @@
   </header>
   <main >
   <ng-container *ngFor="let task of tasks">
-    <app-task [task]="task" [boardId]="boardId" *ngIf="!task.archived"></app-task>
+    <app-task [task]="task" *ngIf="!task.archived"></app-task>
   </ng-container>
   </main>
 

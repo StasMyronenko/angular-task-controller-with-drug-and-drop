@@ -16,7 +16,7 @@ export class BoardTilePopupComponent implements OnInit {
   @Input() board!: BoardModel;
   tasksPerColumn!: {todo: number, in_progress: number, done: number};
   showAllInfo: boolean = false;
-  constructor(private http: HttpService, private store: Store, private ref: ChangeDetectorRef) { }
+  constructor(private http: HttpService, private store: Store) { }
 
   ngOnInit(): void {
     this.getTasksPerColumn()
@@ -33,7 +33,6 @@ export class BoardTilePopupComponent implements OnInit {
       alert('Done!')
       this.showAllInfo = false
       this.store.dispatch(updateBoard({board: this.board}))
-      this.ref.detectChanges();
     })
   }
 
@@ -41,7 +40,6 @@ export class BoardTilePopupComponent implements OnInit {
     const url = this.getBoardUrl(id)
     this.http.sendRequest(url, {}, 'DELETE').subscribe(info => this.board = info.body);
     this.store.dispatch(removeBoard({boardId: id}));
-    this.ref.detectChanges();
   }
 
   getTasksPerColumn(){
