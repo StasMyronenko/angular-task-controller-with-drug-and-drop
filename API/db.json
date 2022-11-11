@@ -1,39 +1,6 @@
 {
-  "users": [
-    {
-      "email": "2@g.c",
-      "password": "$2a$10$zTnvWQ4Rq1Cro.l17/RRceHNatOCWOdpaGZJu69vM914omL8gI7oi",
-      "name": "Stas",
-      "repeat_password": "12345678",
-      "id": 1
-    }
-  ],
-  "boards": [
-    {
-      "title": "2",
-      "description": "2",
-      "columns_color": {
-        "todo_color": "#4F84FF",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
-      },
-      "creation_date": "Thu Nov 03 2022 10:13:07 GMT+0200 (Eastern European Standard Time)",
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "title": "3",
-      "description": "3",
-      "columns_color": {
-        "todo_color": "#4F84FF",
-        "in_progress_color": "#4F84FF",
-        "done_color": "#4F84FF"
-      },
-      "creation_date": "Thu Nov 03 2022 10:13:08 GMT+0200 (Eastern European Standard Time)",
-      "userId": 1,
-      "id": 3
-    }
-  ],
+  "users": [],
+  "boards": [],
   "tasks": [],
   "comments": []
 }
