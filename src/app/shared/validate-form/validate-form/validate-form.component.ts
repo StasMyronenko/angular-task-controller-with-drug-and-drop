@@ -7,7 +7,7 @@ import {sortOption} from "./validate-form.model";
   templateUrl: './validate-form.component.html',
   styleUrls: ['./validate-form.component.scss']
 })
-export class ValidateFormComponent implements OnInit {
+export class ValidateFormComponent {
   @Input() sortOptions: Array<sortOption> = [];
   @Input() sortBy = new FormControl();
   @Input() reverse = new FormControl(false)
@@ -16,8 +16,4 @@ export class ValidateFormComponent implements OnInit {
   validateDataForm = new FormGroup({sortBy: this.sortBy, reverse: this.reverse, search: this.search})
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

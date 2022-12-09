@@ -20,4 +20,18 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call onSubmitFunction', () => {
+    const button = fixture.nativeElement.querySelector('button');
+    spyOn(component, 'onSubmitFunction');
+    button.click();
+    expect(component.onSubmitFunction).toHaveBeenCalled();
+  })
+
+  it('should call onSubmit.emit()', () => {
+    const button = fixture.nativeElement.querySelector('button');
+    spyOn(component.onSubmit, 'emit');
+    button.click();
+    expect(component.onSubmit.emit).toHaveBeenCalled();
+  })
 });

@@ -1,4 +1,4 @@
-import {BoardModel, Task} from "../core/board/board/board.model";
+import {BoardModel, Task} from "../features/board/board/board.model";
 
 export interface AppState {
   boards: ReadonlyArray<BoardModel>

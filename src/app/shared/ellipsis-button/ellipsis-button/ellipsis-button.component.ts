@@ -5,9 +5,9 @@ import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
   templateUrl: './ellipsis-button.component.html',
   styleUrls: ['./ellipsis-button.component.scss']
 })
-export class EllipsisButtonComponent implements OnInit {
+export class EllipsisButtonComponent {
 
-  @Output() onClick = new EventEmitter()
+  @Output() onClick = new EventEmitter();
   @Input() color: string = '#4F84FF';
   @Input() size: string = '2rem';
   constructor() { }
@@ -15,8 +15,4 @@ export class EllipsisButtonComponent implements OnInit {
   onClickFunction() {
     this.onClick.emit()
   }
-
-  ngOnInit(): void {
-  }
-
 }

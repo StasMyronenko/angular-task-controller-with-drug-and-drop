@@ -1,7 +1,7 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {BoardModel, Task, TaskProgress} from "../../core/board/board/board.model";
+import {BoardModel, Task, TaskProgress} from "../../features/board/board/board.model";
 import {selectTasks} from "../tasks/tasks.selector";
-import {sortOptionsEnumerateBoard} from "../../core/dashboard/dashboard/dashboard.model";
+import {sortOptionsEnumerateBoard} from "../../features/dashboard/dashboard/dashboard.model";
 
 
 export const selectBoards = createFeatureSelector<ReadonlyArray<BoardModel>>('boards')
@@ -22,11 +22,11 @@ export const selectFilteredBoards = (
   }
 )
 
-const reverseBoards = (boards: ReadonlyArray<BoardModel>, isReverse: boolean = false): Array<BoardModel> => (
+export const reverseBoards = (boards: ReadonlyArray<BoardModel>, isReverse: boolean = false): Array<BoardModel> => (
   isReverse ? [...boards].reverse() : [...boards]
 );
 
-const sortBoards = (
+export const sortBoards = (
   boards: ReadonlyArray<BoardModel>,
   tasks: ReadonlyArray<Task>,
   sortedBy = sortOptionsEnumerateBoard.title
@@ -63,16 +63,16 @@ const sortBoards = (
       }
     }
 
-const filterBoards = (boards: ReadonlyArray<BoardModel>, tasks: ReadonlyArray<Task>, filterBy: string = ''): Array<BoardModel> =>  {
-    if (filterBy === '') {
-      return [...boards]
-    }
-    return boards.filter((board) => {
-      if (board.title.includes(filterBy)) {
-        return true;
-      }
-      const boardTasks = tasks.filter((task) => task.boardId === board.id)
-      const searchedTasks = boardTasks.filter((task) => task.title.includes(filterBy))
-      return searchedTasks.length > 0;
-    })
+export const filterBoards = (boards: ReadonlyArray<BoardModel>, tasks: ReadonlyArray<Task>, filterBy: string = ''): Array<BoardModel> =>  {
+  if (filterBy === '') {
+    return [...boards]
   }
+  return boards.filter((board) => {
+    if (board.title.includes(filterBy)) {
+      return true;
+    }
+    const boardTasks = tasks.filter((task) => task.boardId === board.id)
+    const searchedTasks = boardTasks.filter((task) => task.title.includes(filterBy))
+    return searchedTasks.length > 0;
+  })
+}

@@ -1,7 +1,7 @@
 import {createReducer, on} from "@ngrx/store";
 
 import {getTaskList, addTask, removeTask, changeProgress, editTask} from "./tasks.actions";
-import {Task} from "../../core/board/board/board.model";
+import {Task} from "../../features/board/board/board.model";
 
 export const initialTasksState: ReadonlyArray<Task> = [];
 

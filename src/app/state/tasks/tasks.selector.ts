@@ -1,6 +1,6 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {sortOptionsEnumerateTask, Task, TaskProgress} from "../../core/board/board/board.model";
-import {sortOptionsEnumerateBoard} from "../../core/dashboard/dashboard/dashboard.model";
+import {sortOptionsEnumerateTask, Task, TaskProgress} from "../../features/board/board/board.model";
+import {sortOptionsEnumerateBoard} from "../../features/dashboard/dashboard/dashboard.model";
 
 export const selectTasks = createFeatureSelector<ReadonlyArray<Task>>('tasks')
 

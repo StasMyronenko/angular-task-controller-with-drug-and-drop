@@ -1,5 +1,5 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import { Comment } from "../../core/board/board/board.model";
+import { Comment } from "../../features/board/board/board.model";
 
 export const selectComments = createFeatureSelector<ReadonlyArray<Comment>>('comments')
 

@@ -1,6 +1,6 @@
 import {createAction, props} from "@ngrx/store";
 
-import {BoardModel} from "../../core/board/board/board.model";
+import {BoardModel} from "../../features/board/board/board.model";
 
 export const addBoard = createAction(
   '[Board List] Add Board',

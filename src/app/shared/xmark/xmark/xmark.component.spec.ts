@@ -20,4 +20,11 @@ describe('XmarkComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call onXmark.emit()', () => {
+    spyOn(component.onXmark, 'emit');
+    const icon = fixture.nativeElement.querySelector('.xmark');
+    icon.click();
+    expect(component.onXmark.emit).toHaveBeenCalled();
+  })
 });

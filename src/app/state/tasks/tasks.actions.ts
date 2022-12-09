@@ -1,6 +1,6 @@
 import {createAction, props} from "@ngrx/store";
 
-import {Task, TaskProgress} from "../../core/board/board/board.model";
+import {Task, TaskProgress} from "../../features/board/board/board.model";
 
 export const addTask = createAction(
   '[Task List] Add Task',

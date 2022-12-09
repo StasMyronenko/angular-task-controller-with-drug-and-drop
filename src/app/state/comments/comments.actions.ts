@@ -1,5 +1,5 @@
 import {createAction, props} from "@ngrx/store";
-import {Comment} from "../../core/board/board/board.model";
+import {Comment} from "../../features/board/board/board.model";
 
 export const addComment = createAction(
   '[Comment List] Add Comment',

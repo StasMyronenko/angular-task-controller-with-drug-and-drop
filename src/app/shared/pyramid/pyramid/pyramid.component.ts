@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-pyramid',
-  templateUrl: './pyramid.component.svg',
+  template: './pyramid.component.svg',
   styleUrls: ['./pyramid.component.scss']
 })
 export class PyramidComponent implements OnChanges {

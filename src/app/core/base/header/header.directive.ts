@@ -9,7 +9,7 @@ import {Directive, ElementRef, HostListener} from '@angular/core';
 export class HeaderDirective {
 
   @HostListener('window:scroll', ['$event'])
-  changeDisplay(event: any) {
+  changeDisplay(event: Event) {
 
     if (window.scrollY > 100) {
       this.el.nativeElement.style.visibility = 'visible';

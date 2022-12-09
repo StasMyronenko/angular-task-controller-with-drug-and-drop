@@ -1,7 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 
 import {getBoardList, addBoard, removeBoard, updateBoard} from "./boards.actions";
-import {BoardModel} from "../../core/board/board/board.model";
+import {BoardModel} from "../../features/board/board/board.model";
 
 export const initialBoardsState: ReadonlyArray<BoardModel> = [];
 

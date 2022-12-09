@@ -5,7 +5,7 @@ import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
 
   @Input() title!: string;
   @Input() bgColor: string = '#fff'
@@ -18,8 +18,4 @@ export class ButtonComponent implements OnInit {
   onSubmitFunction(){
     this.onSubmit.emit()
   }
-
-  ngOnInit(): void {
-  }
-
 }

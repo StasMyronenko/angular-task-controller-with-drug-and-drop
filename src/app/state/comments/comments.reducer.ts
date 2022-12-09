@@ -1,7 +1,7 @@
 import {createReducer, on} from "@ngrx/store";
 
 import {addComment, removeComment, getCommentList} from "./comments.actions";
-import {Comment} from "../../core/board/board/board.model";
+import {Comment} from "../../features/board/board/board.model";
 
 export const initialCommentsState: ReadonlyArray<Comment> = [];
 

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
+import {MenuModule} from "../../../shared/menu/menu.module";
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -8,7 +9,12 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [
+        FooterComponent
+      ],
+      imports: [
+        MenuModule
+      ]
     })
     .compileComponents();
 
@@ -19,5 +25,10 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have menu component inside', function () {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-menu')).not.toBe(null);
   });
 });

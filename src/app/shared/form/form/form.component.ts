@@ -15,17 +15,9 @@ export class FormComponent implements OnInit {
   @Input() xmark: boolean = false;
   @Output() onXmark = new EventEmitter();
   @Output() onSubmit = new EventEmitter();
-
-  submitFunction(value: object = {}) {
-    this.onSubmit.emit(value)
-  }
-
-  xmarkFunction() {
-    this.onXmark.emit()
-  }
-
   formFields: Array<formField> = [];
   userForm: FormGroup = new FormGroup<any>({});
+
   constructor() { }
   ngOnInit() {
     const dataForGroup: any = {}
@@ -41,5 +33,13 @@ export class FormComponent implements OnInit {
       dataForGroup[element.name] = new_element.field
     })
     this.userForm = new FormGroup(dataForGroup)
+  }
+
+  submitFunction(value: object = {}) {
+    this.onSubmit.emit(value);
+  }
+
+  xmarkFunction() {
+    this.onXmark.emit()
   }
 }

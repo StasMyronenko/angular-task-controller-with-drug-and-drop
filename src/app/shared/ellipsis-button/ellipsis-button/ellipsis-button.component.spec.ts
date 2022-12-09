@@ -20,4 +20,18 @@ describe('EllipsisButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call onClickFunction', () => {
+    const icon = fixture.nativeElement.querySelector('.ellipsis');
+    spyOn(component, 'onClickFunction');
+    icon.click();
+    expect(component.onClickFunction).toHaveBeenCalled()
+  })
+
+  it('should call onClick.emit()', () => {
+    const icon = fixture.nativeElement.querySelector('.ellipsis');
+    spyOn(component.onClick, 'emit');
+    icon.click();
+    expect(component.onClick.emit).toHaveBeenCalled()
+  })
 });
