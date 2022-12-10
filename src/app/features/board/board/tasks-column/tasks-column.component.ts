@@ -26,8 +26,8 @@ export class TasksColumnComponent {
 
   drop(event: DragEvent) {
     const taskId = Number(event.dataTransfer?.getData('taskId'))
-    this.store.dispatch(changeProgress({taskId: taskId, changeTo: this.progress}))
     this.editTask(taskId, {progress: this.progress})
+    this.store.dispatch(changeProgress({taskId: taskId, changeTo: this.progress}))
   }
 
   editTask(taskId: number, data: {progress: number}) {

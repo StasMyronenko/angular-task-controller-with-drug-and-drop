@@ -2,11 +2,10 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-pyramid',
-  template: './pyramid.component.svg',
+  templateUrl: './pyramid.component.svg',
   styleUrls: ['./pyramid.component.scss']
 })
 export class PyramidComponent implements OnChanges {
-  // TODO something with State or Observable mb
   @Input() size: number = 1;
   @Input() colorDown = "#4F84FF";
   @Input() colorCenter = "#b175f9";
