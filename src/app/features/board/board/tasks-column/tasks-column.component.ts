@@ -31,7 +31,7 @@ export class TasksColumnComponent {
   }
 
   editTask(taskId: number, data: {progress: number}) {
-    this.http.sendRequest(this.getTaskUrl(taskId), data, 'PATCH')
+    this.http.sendRequest(this.getTaskUrl(taskId), data, 'PATCH').subscribe(info => {})
   }
 
   getTaskUrl(taskId: number) {
